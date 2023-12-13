@@ -1,0 +1,29 @@
+
+•
+java:S1192"xDefine a constant instead of duplicating this literal " ë¬¸ì %c ì˜ ìœ ë‹ˆì½”ë“œ/ì•„ìŠ¤í‚¤ì½”ë“œ ê°’ì€ %d 
+" 4 times.(å¡é8ı«¯–Æ1
+n
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(å¡é8ƒ¬¯–Æ1
+G	java:S106"+Replace this use of System.out by a logger.(å¡é8„¬¯–Æ1
+s
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ŒêÙ¿úÿÿÿÿ8„¬¯–Æ1
+L	java:S106"+Replace this use of System.out by a logger.(ŒêÙ¿úÿÿÿÿ8„¬¯–Æ1
+n
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(»ã–û8„¬¯–Æ1
+G	java:S106"+Replace this use of System.out by a logger.(»ã–û8„¬¯–Æ1
+n
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ÉÙ·¥8…¬¯–Æ1
+G	java:S106"+Replace this use of System.out by a logger.(ÉÙ·¥8…¬¯–Æ1
+n
+java:S3457	"Q%n should be used in place of \n to produce the platform-specific line separator.(İèß·8…¬¯–Æ1
+B
+java:S3457	"%String contains no format specifiers.(İèß·8…¬¯–Æ1
+G	java:S106	"+Replace this use of System.out by a logger.(İèß·8…¬¯–Æ1
+s
+java:S3457
+"Q%n should be used in place of \n to produce the platform-specific line separator.(¢ÛëÒıÿÿÿÿ8…¬¯–Æ1
+L	java:S106
+"+Replace this use of System.out by a logger.(¢ÛëÒıÿÿÿÿ8…¬¯–Æ1
+H
+java:S1905
+"&Remove this unnecessary cast to "int".(¢ÛëÒıÿÿÿÿ8†¬¯–Æ1
