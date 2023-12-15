@@ -1,0 +1,12 @@
+
+_
+java:S2184"BCast one of the operands of this division operation to a "double".(­ĞÔ8ê¥ñèÆ1
+]
+java:S2184"@Cast one of the operands of this integer division to a "double".(­ĞÔ8ê¥ñèÆ1
+S
+java:S1854"7Remove this useless assignment to local variable "avg".(ŒáÆ^8ò¥ñèÆ1
+D
+java:S1659""Declare "tot1" on a separate line.(‡œ§¼şÿÿÿÿ8ó¥ñèÆ1
+L	java:S106"+Replace this use of System.out by a logger.(üš”õÿÿÿÿÿ8õ¥ñèÆ1
+F	java:S106"+Replace this use of System.out by a logger.(óÄŞs8“ÅñèÆ1
+L	java:S106"+Replace this use of System.out by a logger.(ì–İÃùÿÿÿÿ8“ÅñèÆ1
