@@ -1,13 +1,0 @@
-
-e
-java:S6208"CMerge the previous cases into this one using comma-separated label.(ÄŠ¥Ñüÿÿÿÿ8ÖĞºÀÆ1
-n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(şçüßÿÿÿÿÿ8ğ§ºÀÆ1
-Y
-java:S1854"7Remove this useless assignment to local variable "day".(ùå‹Çúÿÿÿÿ8İÒÀÆ1
-s
-java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(¢®ÌÉùÿÿÿÿ8ßÒÀÆ1
-L	java:S106"+Replace this use of System.out by a logger.(¢®ÌÉùÿÿÿÿ8ú§ºÀÆ1
-s
-java:S3457*"Q%n should be used in place of \n to produce the platform-specific line separator.(¢®ÌÉùÿÿÿÿ8àÒÀÆ1
-L	java:S106*"+Replace this use of System.out by a logger.(¢®ÌÉùÿÿÿÿ8ú§ºÀÆ1
-]	java:S125-"<This block of commented-out lines of code should be removed.( ïã³øÿÿÿÿ8çÂÒÀÆ1

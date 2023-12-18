@@ -1,15 +1,0 @@
-
-T
-java:S2589"7Remove this expression which always evaluates to "true"(ü®¨8·ÓîÅ1
-Z
-java:S2589!"8Remove this expression which always evaluates to "false"(ëßÖÍşÿÿÿÿ8êÈîÅ1
-]	java:S125"<This block of commented-out lines of code should be removed.(›ı¸œùÿÿÿÿ8¢œîÅ1
-G	java:S106"+Replace this use of System.out by a logger.(ü®¨8 ­œîÅ1
-D
-java:S1125"'Remove the unnecessary boolean literal.(ü®¨8»ÓîÅ1
-G	java:S106 "+Replace this use of System.out by a logger.(ïœÿ¼8»ÓîÅ1
-L	java:S106!"+Replace this use of System.out by a logger.(ëßÖÍşÿÿÿÿ8ÓîÅ1
-I
-java:S1125!"'Remove the unnecessary boolean literal.(ëßÖÍşÿÿÿÿ8ÓîÅ1
-L	java:S106#"+Replace this use of System.out by a logger.(İ¤ôùÿÿÿÿ8ÔîÅ1
-X	java:S125""<This block of commented-out lines of code should be removed.(Åó€Ù8Î¹¦îÅ1

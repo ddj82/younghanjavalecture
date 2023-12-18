@@ -1,10 +1,0 @@
-
-L	java:S106"+Replace this use of System.out by a logger.(óò±øÿÿÿÿ8–Ş¿Æ1
-X
-java:S1119";Refactor the code to remove this label and the need for it.(óà¤È8Œ–ä¿Æ1
-6
-java:S1065"Remove this unused label.(óà¤È8Œ–ä¿Æ1
-G	java:S106"+Replace this use of System.out by a logger.(Õô“¹8–ä¿Æ1
-G	java:S106
-"+Replace this use of System.out by a logger.(‚‡ñÉ8–ä¿Æ1
-L	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8–ä¿Æ1
