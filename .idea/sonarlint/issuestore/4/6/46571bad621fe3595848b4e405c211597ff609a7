@@ -1,0 +1,11 @@
+
+€
+java:S1488"^Immediately return this expression instead of assigning it to the temporary variable "result".(¨Å¬½øÿÿÿÿ8¬Åê·È1
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(êÑ»²øÿÿÿÿ8­Åê·È1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—È€ÿÿÿÿÿ8®Åê·È1
+I
+java:S1659"'Declare "quantity2" on a separate line.(èâøÚüÿÿÿÿ8ºÅê·È1
+G	java:S106"+Replace this use of System.out by a logger.(Ù®ìÉ8¼Åê·È1
+L	java:S106"+Replace this use of System.out by a logger.(¥Ÿíİøÿÿÿÿ8Ø£ë·È1
+G	java:S106#"+Replace this use of System.out by a logger.(Ù®ìÉ8î»ï·È1
+L	java:S106$"+Replace this use of System.out by a logger.(¥Ÿíİøÿÿÿÿ8ï»ï·È1
