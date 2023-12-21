@@ -1,0 +1,17 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡›ğ¼şÿÿÿÿ8ğüœßÈ1
+W
+java:S2209"5Change this instance-reference to a static reference.(ûèÚæúÿÿÿÿ8÷üœßÈ1
+]	java:S125"<This block of commented-out lines of code should be removed.(¹¯Ò‰üÿÿÿÿ8øüœßÈ1
+X	java:S125"<This block of commented-out lines of code should be removed.(ÊÎ¢ÿ8øüœßÈ1
+D
+java:S2440"'Remove this instantiation of "Counter".(ŞÕ¥Å8úüœßÈ1
+D
+java:S2440"'Remove this instantiation of "Counter".(ıÉÁÃ8ûüœßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(Ùİã¿üÿÿÿÿ8üüœßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(©èßûÿÿÿÿ8ıüœßÈ1
+W
+java:S2209"5Change this instance-reference to a static reference.(©èßûÿÿÿÿ8Û»ßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(åÁ¼ùÿÿÿÿ8‰ÎßÈ1
+W
+java:S2209"5Change this instance-reference to a static reference.(åÁ¼ùÿÿÿÿ8±¤ßÈ1

@@ -1,0 +1,29 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡›ğ¼şÿÿÿÿ8«ŞãßÈ1
+G	java:S106
+"+Replace this use of System.out by a logger.(Æ¦¨Í8´ŞãßÈ1
+\
+java:S6213":Rename this variable to not match a restricted identifier.(á˜‹üÿÿÿÿ8µŞãßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(Æ¸Î¼8¶ŞãßÈ1
+9
+java:S1116"Remove this empty statement.(ÊŞ¹é8·ŞãßÈ1
+F	java:S106"+Replace this use of System.out by a logger.(¡òd8·ŞãßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(óà–Óıÿÿÿÿ8¸ŞãßÈ1
+W
+java:S2209"5Change this instance-reference to a static reference.(óà–Óıÿÿÿÿ8¸ŞãßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(Áêùš8¸ŞãßÈ1
+R
+java:S2209"5Change this instance-reference to a static reference.(Áêùš8¹ŞãßÈ1
+R
+java:S2209"5Change this instance-reference to a static reference.(î‰‚§8¹ŞãßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(İïªøÿÿÿÿ8¹ŞãßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(‡Ó©ùÿÿÿÿ8¹ŞãßÈ1
+W
+java:S2209"5Change this instance-reference to a static reference.(‡Ó©ùÿÿÿÿ8ºŞãßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(Ò„¿Ñ8ºŞãßÈ1
+R
+java:S2209"5Change this instance-reference to a static reference.(Ò„¿Ñ8ºŞãßÈ1
+F	java:S106 "+Replace this use of System.out by a logger.(„¹‡[8ºŞãßÈ1
+L	java:S106!"+Replace this use of System.out by a logger.(›ŸÕúÿÿÿÿ8ºŞãßÈ1
+G	java:S106%"+Replace this use of System.out by a logger.(øÕ½ß8»ŞãßÈ1
+G	java:S106&"+Replace this use of System.out by a logger.(öñ±—8»ŞãßÈ1

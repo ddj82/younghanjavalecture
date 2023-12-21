@@ -1,0 +1,17 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡›ð¼þÿÿÿÿ8µï²ßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(Éµ¥Ÿ8¼ï²ßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(˜…âÃ8½ï²ßÈ1
+R
+java:S2209"5Change this instance-reference to a static reference.(˜…âÃ8½ï²ßÈ1
+L	java:S106	"+Replace this use of System.out by a logger.(µ•äôùÿÿÿÿ8˜“³ßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(²ª·–8Ã¾´ßÈ1
+R
+java:S2209"5Change this instance-reference to a static reference.(²ª·–8Ä¾´ßÈ1
+F	java:S106"+Replace this use of System.out by a logger.(öÏå8Ä¾´ßÈ1
+G	java:S106"+Replace this use of System.out by a logger.(î ±í8Å¾´ßÈ1
+R
+java:S2209"5Change this instance-reference to a static reference.(î ±í8Å¾´ßÈ1
+L	java:S106"+Replace this use of System.out by a logger.(ÿÄû€üÿÿÿÿ8Å¾´ßÈ1
+D
+java:S3010""Remove this assignment of "total".(ö±þ÷øÿÿÿÿ8¿ï²ßÈ1

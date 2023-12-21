@@ -79,3 +79,35 @@ M
 src/school_05/A09_ThisEx.java,9\d\9d248f26188584589f48487862fcb4ab5b254051
 Q
 !src/school_05/A10_MyDateTest.java,a\f\af1163e053bb417f21cbec76cac82384b4d6ec54
+M
+src/school_05/MemoryTest.java,e\0\e0f1bf903747190bfea7484e24578806eef6db1e
+G
+src/school_05/Test.java,a\e\ae2c9c2e90e80919660dea786c2724ec9becad69
+P
+ src/school_05/ArgumentClass.java,c\e\ce6e515a57d12d2dbff508a720616f5cfbc703c8
+I
+src/school_05/Memory.java,5\5\55cf36be1bc3b32b175998ae3584fc77dca7ae93
+O
+src/school_05/Constructor1.java,d\c\dc18dcb4aaef2df9313888ae6be636adb342bdb7
+H
+src/school_05/SubEx.java,b\4\b49a8e34f60ccb2d3e394c2eea4efd446ba21533
+E
+src/school_06/Ex.java,0\c\0c82b8775be4f78279a1d271b9d966ab5c74e6d9
+H
+src/school_06/CarEx.java,3\c\3c6c49f9a5a8e417d1393d507bb22077c4e89377
+G
+src/school_06/Ex02.java,b\2\b262b893b61a50fef7796ab09494e85fcb40b1db
+G
+src/school_06/Ex01.java,7\d\7df866223506c860f2e12aa8bc27443d57383ce1
+L
+src/school_06/CounterEx.java,8\d\8d2c5ec02f7b5ae03ab3e97d2ffeddc7ed8c938d
+H
+src/school_06/BoxEx.java,d\a\daf809db4702055e878e557b96439f856b8e08d1
+L
+src/school_06/AccountEx.java,c\f\cf9551c8125b5049b1f329466765a1c1ce6cec29
+J
+src/school_06/FieldEx.java,c\d\cd23921f90833094b1cebb484a9baa3203c6b73f
+K
+src/school_06/MethodEx.java,d\6\d6cb2ce6cbe42dcdb6c677dbd7490798fd7b6bb0
+I
+src/school_06/School.java,2\4\2477b48312cc1eab3eaa2efc516090b1aec4b4e1
