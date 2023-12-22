@@ -1,0 +1,14 @@
+
+o
+java:S1192"MDefine a constant instead of duplicating this literal "result ===> " 4 times.(âê¶õûÿÿÿÿ8’—«ˆÉ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ƒ¹ïúÿÿÿÿ8“—«ˆÉ1
+G	java:S106
+"+Replace this use of System.out by a logger.(ú¬¼8—«ˆÉ1
+G	java:S106"+Replace this use of System.out by a logger.(©¹ Â8—«ˆÉ1
+e
+java:S5361"HReplace this call to "replaceAll()" by a call to the "replace()" method.(©¹ Â8Ÿ—«ˆÉ1
+G	java:S106"+Replace this use of System.out by a logger.(¯üÖà8Ÿ—«ˆÉ1
+L	java:S106"+Replace this use of System.out by a logger.(âê¶õûÿÿÿÿ8Ÿ—«ˆÉ1
+G	java:S106"+Replace this use of System.out by a logger.(‰•µ“8 —«ˆÉ1
+L	java:S106"+Replace this use of System.out by a logger.( ØÅ‘ùÿÿÿÿ8¡—«ˆÉ1
+G	java:S106"+Replace this use of System.out by a logger.(¬€‚•8®â«ˆÉ1

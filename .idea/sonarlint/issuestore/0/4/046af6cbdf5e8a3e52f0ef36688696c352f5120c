@@ -1,0 +1,35 @@
+
+m
+java:S1192"KDefine a constant instead of duplicating this literal "Java Korea" 3 times.(§ñ°ªùÿÿÿÿ8µ¿÷‡É1
+Y
+java:S4973"<Strings and Boxed types should be compared using "equals()".(‚ªùæ8¸¿÷‡É1
+Y
+java:S4973"<Strings and Boxed types should be compared using "equals()".(ÆÙùð8¸¿÷‡É1
+Y
+java:S4973"<Strings and Boxed types should be compared using "equals()".(øºéð8¹¿÷‡É1
+^
+java:S4973"<Strings and Boxed types should be compared using "equals()".(žœË›ûÿÿÿÿ8¹¿÷‡É1
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ƒ¹ïúÿÿÿÿ
+=
+java:S2129	" Remove this "String" constructor(²œÄÓ8å¿÷‡É1
+L	java:S106"+Replace this use of System.out by a logger.(šÊ“îýÿÿÿÿ8ç¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(‚ªùæ8è¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(ÆÙùð8é¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(øºéð8é¿÷‡É1
+L	java:S106"+Replace this use of System.out by a logger.(žœË›ûÿÿÿÿ8ê¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(¨ðß8ë¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(…ý…À8ì¿÷‡É1
+L	java:S106"+Replace this use of System.out by a logger.(·á­Ëþÿÿÿÿ8í¿÷‡É1
+L	java:S106"+Replace this use of System.out by a logger.(¢Öñôøÿÿÿÿ8î¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(ºñ¬²8ï¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(æÏ‰Ñ8ð¿÷‡É1
+G	java:S106"+Replace this use of System.out by a logger.(°ìÏ¶8ñ¿÷‡É1
+L	java:S106"+Replace this use of System.out by a logger.(õ¦»çÿÿÿÿÿ8ò¿÷‡É1
+L	java:S106 "+Replace this use of System.out by a logger.(÷ˆŽËûÿÿÿÿ8ó¿÷‡É1
+L	java:S106!"+Replace this use of System.out by a logger.(‘ åôýÿÿÿÿ8õ¿÷‡É1
+L	java:S106#"+Replace this use of System.out by a logger.(¢±ÝÌúÿÿÿÿ8ö¿÷‡É1
+G	java:S106$"+Replace this use of System.out by a logger.(éßðƒ8ö¿÷‡É1
+G	java:S106%"+Replace this use of System.out by a logger.(£õÓæ8÷¿÷‡É1
+L	java:S106&"+Replace this use of System.out by a logger.(™êðÁøÿÿÿÿ8ù¿÷‡É1
+G	java:S106'"+Replace this use of System.out by a logger.(ï´¤é8ú¿÷‡É1
+G	java:S106+"+Replace this use of System.out by a logger.(±ÕøŒ8û¿÷‡É1
