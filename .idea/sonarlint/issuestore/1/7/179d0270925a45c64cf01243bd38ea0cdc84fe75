@@ -1,0 +1,15 @@
+
+b
+java:S1192"FDefine a constant instead of duplicating this literal "World" 5 times.(Ì¬C8‚İ¶¬Ê1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ƒ¹ïúÿÿÿÿ8ƒİ¶¬Ê1
+G	java:S106"+Replace this use of System.out by a logger.(ÌÁ€8İ¶¬Ê1
+F	java:S106"+Replace this use of System.out by a logger.(Ôè£"8İ¶¬Ê1
+F	java:S106"+Replace this use of System.out by a logger.(Ì¬C8‘İ¶¬Ê1
+L	java:S106"+Replace this use of System.out by a logger.(ÔòÄ´şÿÿÿÿ8‘İ¶¬Ê1
+F	java:S106"+Replace this use of System.out by a logger.(º–Ğ~8’İ¶¬Ê1
+G	java:S106"+Replace this use of System.out by a logger.(®ò¦Á8’İ¶¬Ê1
+G	java:S106"+Replace this use of System.out by a logger.(“êÏÜ8“İ¶¬Ê1
+G	java:S106"+Replace this use of System.out by a logger.(Îş¶­8“İ¶¬Ê1
+L	java:S106"+Replace this use of System.out by a logger.(•€øÄûÿÿÿÿ8”İ¶¬Ê1
+G	java:S106#"+Replace this use of System.out by a logger.(Á†§¤8”İ¶¬Ê1
+G	java:S106$"+Replace this use of System.out by a logger.(»Ÿøù8”İ¶¬Ê1

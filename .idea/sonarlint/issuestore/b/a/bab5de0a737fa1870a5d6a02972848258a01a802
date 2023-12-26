@@ -1,0 +1,17 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û—Ô÷ıÿÿÿÿ8Ô¨˜®Ê1
+G	java:S106	"+Replace this use of System.out by a logger.(İ²ış8Ü¨˜®Ê1
+G	java:S106"+Replace this use of System.out by a logger.(•˜½à8ÌÓ™®Ê1
+@
+java:S2387"#"z" is the name of a field in "AA".(¶µ÷×8€®Ê1
+\
+java:S1161":Add the "@Override" annotation above this method signature(Í•óşÿÿÿÿ8ƒ®Ê1
+G	java:S106"+Replace this use of System.out by a logger.(¤ØÊ8„®Ê1
+W
+java:S1161!":Add the "@Override" annotation above this method signature(Äöø–8ïò®Ê1
+L	java:S106""+Replace this use of System.out by a logger.(ãŒÂÔøÿÿÿÿ8ğò®Ê1
+F	java:S106-"+Replace this use of System.out by a logger.(òäƒk8ŒÚ£®Ê1
+X	java:S125,"<This block of commented-out lines of code should be removed.(È˜™8âí©®Ê1
+L	java:S106."+Replace this use of System.out by a logger.(è°ß‡ûÿÿÿÿ8Ú£®Ê1
+L	java:S106/"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8Æø¤®Ê1
+L	java:S1061"+Replace this use of System.out by a logger.(¹Ñğ°ÿÿÿÿÿ8¶Ã§®Ê1

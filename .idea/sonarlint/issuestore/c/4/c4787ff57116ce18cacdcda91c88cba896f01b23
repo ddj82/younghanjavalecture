@@ -1,0 +1,21 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ƒ¹ïúÿÿÿÿ8¦ÃÏ­Ê1
+B
+java:S2129" Remove this "String" constructor(¼ğàüÿÿÿÿ8´ÃÏ­Ê1
+G	java:S106"+Replace this use of System.out by a logger.(÷«·8´ÃÏ­Ê1
+G	java:S106"+Replace this use of System.out by a logger.(€²ğÚ8´ÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(ıÕ¬¨şÿÿÿÿ8µÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(ë’½¨şÿÿÿÿ8µÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(›ÂÂÆÿÿÿÿÿ8µÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(±Û“íúÿÿÿÿ8¶ÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(ˆ›Âşÿÿÿÿÿ8¶ÃÏ­Ê1
+G	java:S106"+Replace this use of System.out by a logger.(ŒÈÇ×8¶ÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(ÃŞÆ†üÿÿÿÿ8¶ÃÏ­Ê1
+G	java:S106"+Replace this use of System.out by a logger.(Ü‰üŸ8·ÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(óÛ¶Ïúÿÿÿÿ8·ÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(òŸ ¦üÿÿÿÿ8·ÃÏ­Ê1
+L	java:S106"+Replace this use of System.out by a logger.(ÎÿÇïúÿÿÿÿ8·ÃÏ­Ê1
+G	java:S106#"+Replace this use of System.out by a logger.(Œ•Æö8¸ÃÏ­Ê1
+G	java:S106$"+Replace this use of System.out by a logger.(ı¥³™8¸ÃÏ­Ê1
+G	java:S106%"+Replace this use of System.out by a logger.(ö®è8¸ÃÏ­Ê1
+G	java:S106&"+Replace this use of System.out by a logger.(ªÇ¡À8¸ÃÏ­Ê1
