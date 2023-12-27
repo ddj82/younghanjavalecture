@@ -1,0 +1,26 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û—Ô÷ıÿÿÿÿ
+W
+java:S1118":Add a private constructor to hide the implicit public one.(œ×²‘8Éñ—ÕÊ1
+G	java:S106	"+Replace this use of System.out by a logger.(•êã8Ğñ—ÕÊ1
+G	java:S106"+Replace this use of System.out by a logger.(¶Âû¡8Ññ—ÕÊ1
+L	java:S106"+Replace this use of System.out by a logger.(ã°’éıÿÿÿÿ8Óñ—ÕÊ1
+P
+java:S3252 ".Use static access with "school_08.C1" for "y".(Â”Ÿğùÿÿÿÿ8Ûñ—ÕÊ1
+L	java:S106""+Replace this use of System.out by a logger.(£Ç¶Œúÿÿÿÿ8Üñ—ÕÊ1
+L	java:S106#"+Replace this use of System.out by a logger.(™•ÿ³ıÿÿÿÿ8Üñ—ÕÊ1
+P
+java:S3252#".Use static access with "school_08.C1" for "y".(™•ÿ³ıÿÿÿÿ8İñ—ÕÊ1
+G	java:S106$"+Replace this use of System.out by a logger.(ãëŸš8Şñ—ÕÊ1
+D
+java:S2440*""Remove this instantiation of "C2".(†Šß ıÿÿÿÿ8áñ—ÕÊ1
+W
+java:S2209+"5Change this instance-reference to a static reference.(¼âáŸøÿÿÿÿ8äñ—ÕÊ1
+?
+java:S2440-""Remove this instantiation of "C2".(’–ˆì8åñ—ÕÊ1
+W
+java:S2209."5Change this instance-reference to a static reference.(”ûÏğøÿÿÿÿ8çñ—ÕÊ1
+M
+java:S3252/"0Use static access with "school_08.C1" for "md1".(Óîµ8èñ—ÕÊ1
+R
+java:S2209/"5Change this instance-reference to a static reference.(Óîµ8èñ—ÕÊ1

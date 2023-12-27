@@ -119,3 +119,31 @@ J
 src/school_08/InhEx03.java,6\e\6eb3e2e1c1fe21feae406d6af2e92dccb913011a
 J
 src/school_08/InhEx04.java,3\c\3cf55bf2d22f6769fa52703656d8164cc9542b22
+K
+src/school_09/Customer.java,6\e\6e763eade68adaaec38982d8bbfd95482aa81e7b
+P
+ src/school_09/CustomerTest1.java,6\6\6655cbad1f7409cb00749ca508b9c3e84e27c6fd
+N
+src/school_09/VIPCustomer.java,2\9\298807f012862adad9adb9f8a5a8e8ed4281854b
+J
+src/school_08/InhEx05.java,3\2\32f60d61749fc2952f03359e2ddb52ecc23c3f3b
+J
+src/school_08/InhEx06.java,1\d\1debaf0e6bf66e6824eb164bba488c9aa5e3fe1e
+J
+src/school_08/InhEx07.java,b\a\ba72035bb4333e8a6cd6546977855d131eed4f55
+L
+src/school_08/Super02_1.java,f\a\fa4cb32f5768538478540885eef35c397fe07419
+J
+src/school_08/Super01.java,2\9\29d5116e0b6c2ccd2e93d60f117e7941d82045c3
+J
+src/school_08/Super02.java,0\0\009a8b41f86813c4092d634dff2f31872487839f
+J
+src/school_08/Super03.java,d\d\dd2b5293b3b508ca56ad94825b2c38abf60a0b4b
+P
+ src/school_09/CastingTest01.java,c\9\c96d2374c65186949f850c459e80153801ac8281
+P
+ src/school_09/CastingTest02.java,4\f\4f08a43365f3799d8aa5132015c8150f63ec97cf
+P
+ src/school_09/CastingTest03.java,5\6\56eded40b1737fbc12cbaf57e38eb4327074d03d
+P
+ src/school_09/CastingTest04.java,9\2\92256f90e3a488ebc314f4f18826002e605cba9c

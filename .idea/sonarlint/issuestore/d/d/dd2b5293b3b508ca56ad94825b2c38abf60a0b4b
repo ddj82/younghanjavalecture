@@ -1,0 +1,15 @@
+
+e
+java:S2184"HCast one of the operands of this multiplication operation to a "double".(Ñ—ƒ¶8¸äÕÊ1
+e
+java:S2184"HCast one of the operands of this multiplication operation to a "double".(ñ‚¯8¸äÕÊ1
+e
+java:S2184"HCast one of the operands of this multiplication operation to a "double".(íÿŸ 8¹äÕÊ1
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û—Ô÷ıÿÿÿÿ
+L	java:S106"+Replace this use of System.out by a logger.(ÿ¼àáúÿÿÿÿ8ÅäÕÊ1
+G	java:S106"+Replace this use of System.out by a logger.(†Æ€á8ÇäÕÊ1
+F	java:S106"+Replace this use of System.out by a logger.(Ûıê58ÉäÕÊ1
+X	java:S125"<This block of commented-out lines of code should be removed.(‰†ã»8ÉäÕÊ1
+L	java:S106$"+Replace this use of System.out by a logger.(¤§ÄÙıÿÿÿÿ8ÌäÕÊ1
+L	java:S106%"+Replace this use of System.out by a logger.(áòĞÿÿÿÿÿ8ÍäÕÊ1
+G	java:S106&"+Replace this use of System.out by a logger.(ÔÒÏ±8ÎäÕÊ1
