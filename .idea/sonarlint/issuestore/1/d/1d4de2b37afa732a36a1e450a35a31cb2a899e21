@@ -1,0 +1,31 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦†ìÆøÿÿÿÿ
+X	java:S125	"<This block of commented-out lines of code should be removed.(½“Ø¯8ŸõêþÊ1
+L	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áþÿÿÿÿ8¡õêþÊ1
+R
+java:S2209"5Change this instance-reference to a static reference.(§Œ¹¨8¬õêþÊ1
+W
+java:S2209"5Change this instance-reference to a static reference.(Ò²Ÿ‚úÿÿÿÿ8­õêþÊ1
+C
+java:S1905"&Remove this unnecessary cast to "Car".(áÜ¬ù8®õêþÊ1
+L	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áþÿÿÿÿ8¯õêþÊ1
+L	java:S106."+Replace this use of System.out by a logger.(Ý·›ûÿÿÿÿ8¸õêþÊ1
+G	java:S1062"+Replace this use of System.out by a logger.(û‹¨8ºõêþÊ1
+c
+java:S34576"AFormat specifiers should be used instead of string concatenation.(õü™‰ùÿÿÿÿ8½õêþÊ1
+L	java:S1066"+Replace this use of System.out by a logger.(õü™‰ùÿÿÿÿ8½õêþÊ1
+c
+java:S3457;"AFormat specifiers should be used instead of string concatenation.(õü™‰ùÿÿÿÿ8¾õêþÊ1
+L	java:S106;"+Replace this use of System.out by a logger.(õü™‰ùÿÿÿÿ8¿õêþÊ1
+G
+java:S2387A"*"carName" is the name of a field in "Car".(‹í“ô8ÀõêþÊ1
+L	java:S106I"+Replace this use of System.out by a logger.(¤ÌÎ©ÿÿÿÿÿ8ÄõêþÊ1
+L	java:S106M"+Replace this use of System.out by a logger.(®†ì±ùÿÿÿÿ8ÆõêþÊ1
+W
+java:S1161R":Add the "@Override" annotation above this method signature(šŒñË8ÇõêþÊ1
+G	java:S106T"+Replace this use of System.out by a logger.(ô¸Ì8ÉõêþÊ1
+\
+java:S1161W":Add the "@Override" annotation above this method signature(¢”™–ùÿÿÿÿ8ÊõêþÊ1
+c
+java:S3457X"AFormat specifiers should be used instead of string concatenation.(˜ŒÂ–üÿÿÿÿ8ËõêþÊ1
+L	java:S106X"+Replace this use of System.out by a logger.(˜ŒÂ–üÿÿÿÿ8ËõêþÊ1

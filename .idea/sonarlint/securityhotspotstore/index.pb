@@ -147,3 +147,25 @@ P
  src/school_09/CastingTest03.java,5\6\56eded40b1737fbc12cbaf57e38eb4327074d03d
 P
  src/school_09/CastingTest04.java,9\2\92256f90e3a488ebc314f4f18826002e605cba9c
+S
+#src/school_09/test/SameClassEx.java,a\7\a70eb723377ca7615f5636354c8d76a9ffca8584
+X
+(src/school_09/test/other/ChileClass.java,1\5\158e79812111312cb3421fe484025679f12f2141
+Z
+*src/school_09/test/other/ChileClassEx.java,1\f\1f20270bd93e01f745cf37cee556b5456e366d5e
+Q
+!src/school_09/test/SameClass.java,5\7\57046be7048a0ab558cb7ffdd7ef1b2e2c129b4c
+R
+"src/school_09/OverridingTest1.java,a\4\a4d29590785a2b573d5897af32b946054ad01790
+S
+#src/school_09/OverridingHiding.java,1\d\1d4de2b37afa732a36a1e450a35a31cb2a899e21
+M
+src/school_09/SystemTest.java,c\1\c15acaa68317d0a7daaf08a50461f94c444aeb16
+O
+src/school_09/SystemTestEx.java,9\1\91031cb38defa14d7286bfbec91ebdf129c25d04
+O
+src/school_10/AbstractEx01.java,a\3\a3bd370d61ef869818133133a57f18361079b8dd
+O
+src/school_10/AbstractEx02.java,b\1\b19a6978896633610634ec55197d728f590d773b
+O
+src/school_10/AbstractEx03.java,a\c\ac59c40cc0a6c1e83ed2ae0916d65af6d9ba70c5
