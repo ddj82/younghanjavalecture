@@ -1,4 +1,4 @@
-package school_07singleton;
+package school_07.singleton;
 
 public class CompanyTest {
     public static void main(String[] args) {

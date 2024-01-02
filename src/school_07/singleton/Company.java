@@ -1,4 +1,4 @@
-package school_07singleton;
+package school_07.singleton;
 
 public class Company {
 //    private static Company instance = new Company();

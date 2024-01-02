@@ -1,0 +1,13 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(®½íşÿÿÿÿ
+G	java:S106"+Replace this use of System.out by a logger.(£¤œà8À±²ÏÌ1
+L	java:S106
+"+Replace this use of System.out by a logger.(İşÿÿÿÿÿ8À±²ÏÌ1
+K
+java:S2140
+")Use "java.util.Random.nextInt()" instead.(İşÿÿÿÿÿ8À±²ÏÌ1
+L	java:S106"+Replace this use of System.out by a logger.(ú¸Ã¡şÿÿÿÿ8Á±²ÏÌ1
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(ú¸Ã¡şÿÿÿÿ8Á±²ÏÌ1
+L	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8Â±²ÏÌ1
+]	java:S125"<This block of commented-out lines of code should be removed.(¹¶ã²øÿÿÿÿ8Â±²ÏÌ1
