@@ -1,0 +1,17 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ì‘ó“ıÿÿÿÿ
+L	java:S106"+Replace this use of System.out by a logger.(£ó²”üÿÿÿÿ8¬Ú÷÷Ì1
+G	java:S106
+"+Replace this use of System.out by a logger.(÷Ø‹8­Ú÷÷Ì1
+G	java:S106"+Replace this use of System.out by a logger.(÷Ø‹8®Ú÷÷Ì1
+o	java:S116"NRename this field "MAX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³Æ„İÿÿÿÿÿ8¯Ú÷÷Ì1
+]	java:S125"<This block of commented-out lines of code should be removed.(ô«ß¥şÿÿÿÿ8µÚ÷÷Ì1
+{
+java:S1171!"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8¶Ú÷÷Ì1
+W
+java:S2209#"5Change this instance-reference to a static reference.(¢®ßéşÿÿÿÿ8¹Ú÷÷Ì1
+]	java:S125$"<This block of commented-out lines of code should be removed.(È¬½Œüÿÿÿÿ8¹Ú÷÷Ì1
+G
+java:S3010*"%Remove this assignment of "classVar".(ÿË×Èûÿÿÿÿ8¾Ú÷÷Ì1
+W
+java:S2209*"5Change this instance-reference to a static reference.(ÿË×Èûÿÿÿÿ8¿Ú÷÷Ì1
