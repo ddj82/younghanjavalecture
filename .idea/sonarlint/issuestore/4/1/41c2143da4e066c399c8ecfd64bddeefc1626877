@@ -1,0 +1,8 @@
+
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Úè…ÿÿÿÿÿ8ú£ˆÊÍ1
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(³íÿÿÿÿÿ
+L	java:S106"+Replace this use of System.out by a logger.(Ö¤ÛÓÿÿÿÿÿ8’¤ˆÊÍ1
+L	java:S106"+Replace this use of System.out by a logger.(¬ÃÏúÿÿÿÿ8“¤ˆÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(ÚòÅŸ8“¤ˆÊÍ1
+L	java:S106"+Replace this use of System.out by a logger.(¬ÃÏúÿÿÿÿ8•¤ˆÊÍ1

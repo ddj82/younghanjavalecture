@@ -1,0 +1,15 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(³íÿÿÿÿÿ
+x
+java:S1149
+"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Øà ×øÿÿÿÿ8»¿„ÊÍ1
+x
+java:S1149"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ü½¨Óüÿÿÿÿ8»¿„ÊÍ1
+V
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(‚Á‰øÿÿÿÿ8À¿„ÊÍ1
+]	java:S125"<This block of commented-out lines of code should be removed.(·ÔÅùıÿÿÿÿ8Ã¿„ÊÍ1
+L	java:S106"+Replace this use of System.out by a logger.(ˆİı‹ÿÿÿÿÿ8Ä¿„ÊÍ1
+F	java:S106"+Replace this use of System.out by a logger.(ÀÈéS8Æ¿„ÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(¹¤Ûø8È¿„ÊÍ1
+P
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8Ê¿„ÊÍ1

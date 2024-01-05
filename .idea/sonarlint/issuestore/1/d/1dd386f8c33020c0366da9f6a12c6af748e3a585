@@ -1,0 +1,21 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ±œ‚ûÿÿÿÿ
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(çÂ²Ş8¥òÊÍ1
+X
+java:S1854"6Remove this useless assignment to local variable "AA".(İÏš¹ıÿÿÿÿ8­òÊÍ1
+I
+java:S1481"'Remove this unused "AA" local variable.(İÏš¹ıÿÿÿÿ8®òÊÍ1
+]	java:S125"<This block of commented-out lines of code should be removed.(€­Æúÿÿÿÿ8±òÊÍ1
+X	java:S125"<This block of commented-out lines of code should be removed.(ü…Ã8³òÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(ìêµĞ8´òÊÍ1
+X	java:S125"<This block of commented-out lines of code should be removed.(í´¥¯8´òÊÍ1
+L	java:S106"+Replace this use of System.out by a logger.(±™ûºÿÿÿÿÿ8µòÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(½¥ •8µòÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(ı‚8µòÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(Ô¦Ï 8¶òÊÍ1
+L	java:S106$"+Replace this use of System.out by a logger.(îü¼ƒûÿÿÿÿ8·òÊÍ1
+G	java:S106+"+Replace this use of System.out by a logger.(ı‚8¸òÊÍ1
+W	java:S125*"<This block of commented-out lines of code should be removed.(¸ğ§8¸òÊÍ1
+L	java:S106,"+Replace this use of System.out by a logger.(¹÷Ûúÿÿÿÿ8¹òÊÍ1
+W
+java:S2209,"5Change this instance-reference to a static reference.(¹÷Ûúÿÿÿÿ8¼òÊÍ1

@@ -1,0 +1,25 @@
+
+u
+java:S1192-"XDefine a constant instead of duplicating this literal "Outer.StaticInner.cv : " 3 times.(ÜßÚÇ8†’‘ÊÍ1
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ±œ‚ûÿÿÿÿ
+G	java:S106	"+Replace this use of System.out by a logger.(¿âË8“’‘ÊÍ1
+L	java:S106"+Replace this use of System.out by a logger.(İËÊãıÿÿÿÿ8•’‘ÊÍ1
+G	java:S106"+Replace this use of System.out by a logger.(ÂÅ„´8—’‘ÊÍ1
+L	java:S106"+Replace this use of System.out by a logger.(È£“°ıÿÿÿÿ8—’‘ÊÍ1
+X	java:S125"<This block of commented-out lines of code should be removed.(ö°ı8˜’‘ÊÍ1
+G	java:S106*"+Replace this use of System.out by a logger.(†¸Ÿè8š’‘ÊÍ1
+L	java:S106,"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8š’‘ÊÍ1
+G	java:S106-"+Replace this use of System.out by a logger.(ÜßÚÇ8›’‘ÊÍ1
+G	java:S106/"+Replace this use of System.out by a logger.(ÜßÚÇ8›’‘ÊÍ1
+]	java:S1253"<This block of commented-out lines of code should be removed.(­‘Üªúÿÿÿÿ8œ’‘ÊÍ1
+W
+java:S2209<"5Change this instance-reference to a static reference.(œ¨„‚ùÿÿÿÿ8œ’‘ÊÍ1
+L	java:S106="+Replace this use of System.out by a logger.(Ô°ÌÜúÿÿÿÿ8’‘ÊÍ1
+L	java:S106>"+Replace this use of System.out by a logger.(¾˜Äüÿÿÿÿ8’‘ÊÍ1
+L	java:S106?"+Replace this use of System.out by a logger.(ªà“¾ÿÿÿÿÿ8’‘ÊÍ1
+W
+java:S2209?"5Change this instance-reference to a static reference.(ªà“¾ÿÿÿÿÿ8’‘ÊÍ1
+G	java:S106@"+Replace this use of System.out by a logger.(¥ï‰Õ8’‘ÊÍ1
+R
+java:S2209@"5Change this instance-reference to a static reference.(¥ï‰Õ8’‘ÊÍ1
+G	java:S106A"+Replace this use of System.out by a logger.(è€­Í8’‘ÊÍ1
