@@ -1,0 +1,14 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’ª‰ÿÿÿÿÿ
+\
+java:S2259"?A "NullPointerException" could be thrown; "c" is nullable here.(Ô©¶¿8²š»ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(Á·¬íúÿÿÿÿ8¶š»ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(Ô©¶¿8¸š»ÅÎ1
+a
+java:S1858"D"c" is already a string, there's no need to call "toString()" on it.(Ô©¶¿8¹š»ÅÎ1
+F	java:S106"+Replace this use of System.out by a logger.(È¼ @8ºš»ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(ûğ»”8»š»ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(®™˜Ø8¼š»ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(–Åó¶ıÿÿÿÿ8¼š»ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(Ù†¼Òşÿÿÿÿ8½š»ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(è­’Šùÿÿÿÿ8¾š»ÅÎ1

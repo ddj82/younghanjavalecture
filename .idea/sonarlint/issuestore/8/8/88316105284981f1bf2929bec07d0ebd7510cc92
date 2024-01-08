@@ -1,0 +1,9 @@
+
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(™ü³·8ÂÃ÷ÅÎ1
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿œ…å
+e
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(À¬ÄÀ8ÍÃ÷ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(Ü»‰ª8ÑÃ÷ÅÎ1
+G
+java:S1197"*Move the array designators [] to the type.(¯÷¶8ÒÃ÷ÅÎ1
+X	java:S125"<This block of commented-out lines of code should be removed.(’ùÛÖ8ÓÃ÷ÅÎ1

@@ -1,0 +1,20 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’ª‰ÿÿÿÿÿ
+a
+java:S2259	"?A "NullPointerException" could be thrown; "c" is nullable here.(æÏ”Îşÿÿÿÿ8ú‘ËÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(Øæıÿÿÿÿ8ş‘ËÅÎ1
+L	java:S106	"+Replace this use of System.out by a logger.(æÏ”Îşÿÿÿÿ8ş‘ËÅÎ1
+f
+java:S1858	"D"c" is already a string, there's no need to call "toString()" on it.(æÏ”Îşÿÿÿÿ8ÿ‘ËÅÎ1
+L	java:S106
+"+Replace this use of System.out by a logger.(Êà©×şÿÿÿÿ8€’ËÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(ú¸×³8€’ËÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(ªôÑ¬ûÿÿÿÿ8’ËÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(ûğ»”8‚’ËÅÎ1
+F	java:S106"+Replace this use of System.out by a logger.(·”ù8‚’ËÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(ìÍ¦‡8‚’ËÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(°»Ëûÿÿÿÿ8ƒ’ËÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(ŞÏ£Íşÿÿÿÿ8ƒ’ËÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(úïåô8„’ËÅÎ1
+F	java:S106"+Replace this use of System.out by a logger.(ÕÇßx8„’ËÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(‰˜İııÿÿÿÿ8†’ËÅÎ1

@@ -1,0 +1,16 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’ª‰ÿÿÿÿÿ8¹º·ÅÎ1
+e
+java:S3518
+"CMake sure this expression can't be zero before doing this division.(ñ…àöüÿÿÿÿ8Àº·ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(£ƒà•8Äº·ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(†Õıâ8Åº·ÅÎ1
+G	java:S106	"+Replace this use of System.out by a logger.(Ğ±äé8Æº·ÅÎ1
+L	java:S106
+"+Replace this use of System.out by a logger.(ñ…àöüÿÿÿÿ8Çº·ÅÎ1
+l
+java:S1764
+"JCorrect one of the identical sub-expressions on both sides of operator "/"(ñ…àöüÿÿÿÿ8Éº·ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(ÉÕÓÙûÿÿÿÿ8Êº·ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(‹˜è8Ëº·ÅÎ1
+F	java:S106"+Replace this use of System.out by a logger.(ßøÄL8Ëº·ÅÎ1

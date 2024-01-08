@@ -1,0 +1,22 @@
+
+v
+java:S1192"TDefine a constant instead of duplicating this literal "===================" 4 times.(›ñ©¿ûÿÿÿÿ8â¬½ÅÎ1
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’ª‰ÿÿÿÿÿ
+L	java:S106"+Replace this use of System.out by a logger.( öß£úÿÿÿÿ8º­½ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(ø–’¦8»­½ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(¯º¹³8¼­½ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(ÌØù8½­½ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(¥èùÿÿÿÿ8½­½ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(¾ïñ8½­½ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(›ñ©¿ûÿÿÿÿ8¾­½ÅÎ1
+G	java:S106"+Replace this use of System.out by a logger.(Ü¹šÌ8¾­½ÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(í‡åîÿÿÿÿÿ8¿­½ÅÎ1
+L	java:S106 "+Replace this use of System.out by a logger.(›ñ©¿ûÿÿÿÿ8¿­½ÅÎ1
+L	java:S106!"+Replace this use of System.out by a logger.(“Ë²ıÿÿÿÿ8¿­½ÅÎ1
+L	java:S106""+Replace this use of System.out by a logger.(í‡åîÿÿÿÿÿ8À­½ÅÎ1
+L	java:S106$"+Replace this use of System.out by a logger.(›ñ©¿ûÿÿÿÿ8À­½ÅÎ1
+L	java:S106%"+Replace this use of System.out by a logger.(±·àÎüÿÿÿÿ8À­½ÅÎ1
+L	java:S106&"+Replace this use of System.out by a logger.(í‡åîÿÿÿÿÿ8Á­½ÅÎ1
+L	java:S106("+Replace this use of System.out by a logger.(å»»ºüÿÿÿÿ8Á­½ÅÎ1
+L	java:S106*"+Replace this use of System.out by a logger.(›ñ©¿ûÿÿÿÿ8Â­½ÅÎ1
+L	java:S106+"+Replace this use of System.out by a logger.(Ù†¼Òşÿÿÿÿ8Â­½ÅÎ1
