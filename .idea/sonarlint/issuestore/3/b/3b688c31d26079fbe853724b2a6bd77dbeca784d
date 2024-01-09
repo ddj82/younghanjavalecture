@@ -1,4 +1,7 @@
 
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿œ…å
-d
-java:S2094"BRemove this empty class, write its code or make it an "interface".(É…—ıÿÿÿÿ8Ê¶ÿÅÎ1
+L	java:S106"+Replace this use of System.out by a logger.(ĞØÄÜúÿÿÿÿ8×§úìÎ1
+s
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(¿çÕŸıÿÿÿÿ8ß§úìÎ1
+j
+java:S5738"HRemove this call to a deprecated method, it has been marked for removal.(…‰øûÿÿÿÿ8ê§úìÎ1
