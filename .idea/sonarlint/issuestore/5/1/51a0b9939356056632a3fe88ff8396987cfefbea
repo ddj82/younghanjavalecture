@@ -1,0 +1,23 @@
+
+a	java:S112("FDefine and throw a dedicated exception instead of using a generic one.(×‹½68„Ëø˜Ï1
+K
+java:S3740-"/Provide the parametrized type for this generic.(ÊˆÍW8„Ëø˜Ï1
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ü£úë8†Ëø˜Ï1
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ã¢ŞÍøÿÿÿÿ
+i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ÀÂJ8­Ëø˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(Úøê»8¯Ëø˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(ÒÂµ¾ùÿÿÿÿ8²Ëø˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(‰İ”Á8´Ëø˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(‹Óü½8µËø˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(Ò¶òûÿÿÿÿ8µËø˜Ï1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘…÷¦8¶Ëø˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(ìŞÀ úÿÿÿÿ8·Ëø˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(°ñ ­8¸Ëø˜Ï1
+G	java:S106!"+Replace this use of System.out by a logger.(îí¦â8¹Ëø˜Ï1
+L	java:S106#"+Replace this use of System.out by a logger.(ãˆìÿÿÿÿÿ8ºËø˜Ï1
+L	java:S106,"+Replace this use of System.out by a logger.(¨¶‚ïúÿÿÿÿ8»Ëø˜Ï1
+L	java:S106."+Replace this use of System.out by a logger.(ã—¯±úÿÿÿÿ8¼Ëø˜Ï1
+G	java:S1062"+Replace this use of System.out by a logger.(¶ÏÇ8½Ëø˜Ï1
+G	java:S1064"+Replace this use of System.out by a logger.(¯ÍŠê8½Ëø˜Ï1
+L	java:S1067"+Replace this use of System.out by a logger.(„ì­üüÿÿÿÿ8¾Ëø˜Ï1

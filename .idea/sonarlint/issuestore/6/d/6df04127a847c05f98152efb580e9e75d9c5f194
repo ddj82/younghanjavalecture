@@ -1,0 +1,20 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(É›öşÿÿÿÿ
+G	java:S106"+Replace this use of System.out by a logger.(æÊ½ˆ8˜„ï˜Ï1
+{
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8˜„ï˜Ï1
+e
+java:S2276"CReplace the call to "Thread.sleep(...)" with a call to "wait(...)".(»ãßºøÿÿÿÿ8™„ï˜Ï1
+R
+java:S2446"0"notify" may not wake up the appropriate thread.(ş½Ï¨ûÿÿÿÿ8œ„ï˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(şÚØØüÿÿÿÿ8„ï˜Ï1
+{
+java:S21427"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¢„ï˜Ï1
+L	java:S1061"+Replace this use of System.out by a logger.(ÄµÇøÿÿÿÿ8¢„ï˜Ï1
+r
+java:S22362"PRefactor the synchronisation mechanism to not use a Thread instance as a monitor(€×õøÿÿÿÿ8£„ï˜Ï1
+\
+java:S22742":Remove this call to "wait" or move it into a "while" loop.(€×õøÿÿÿÿ8¥„ï˜Ï1
+G	java:S1066"+Replace this use of System.out by a logger.(Äà‹È8¦„ï˜Ï1
+F	java:S106="+Replace this use of System.out by a logger.(ÍÉL8§„ï˜Ï1
+L	java:S106@"+Replace this use of System.out by a logger.( §›×úÿÿÿÿ8¨„ï˜Ï1

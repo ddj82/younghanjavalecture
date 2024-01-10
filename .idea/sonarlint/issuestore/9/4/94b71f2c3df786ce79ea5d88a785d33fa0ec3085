@@ -1,0 +1,16 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿œ…å
+^
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(´Šó8öÖ˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(¬çû²8 öÖ˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(ºÿ‰ô8¡öÖ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(µñÎ”øÿÿÿÿ8¢öÖ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(ÌÂÓùÿÿÿÿ8£öÖ˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(¼ªÉ8¤öÖ˜Ï1
+W
+java:S2479":Remove the non-escaped \u0009 character from this literal.(¼ªÉ8¤öÖ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(•¢­ûÿÿÿÿ8¥öÖ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8¦öÖ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(°ò©„üÿÿÿÿ8§öÖ˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(§¦ÑÕ8§öÖ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(ãÄÍ¨üÿÿÿÿ8¨öÖ˜Ï1

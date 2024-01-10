@@ -1,0 +1,20 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜—Æ÷øÿÿÿÿ
+]
+java:S1854";Remove this useless assignment to local variable "address".(Œâÿûÿÿÿÿ8ìò˜Ï1
+G
+java:S1481
+"*Remove this unused "input" local variable.(°·Úæ8’ìò˜Ï1
+N
+java:S1481",Remove this unused "address" local variable.(Œâÿûÿÿÿÿ8’ìò˜Ï1
+W	java:S125"<This block of commented-out lines of code should be removed.(ÎÙ¯8“ìò˜Ï1
+X	java:S125"<This block of commented-out lines of code should be removed.(È™‚Ş8”ìò˜Ï1
+M
+java:S1874"+Remove this use of "URL"; it is deprecated.(ÒÓ‡ùÿÿÿÿ8šìò˜Ï1
+X	java:S125'"<This block of commented-out lines of code should be removed.(û•÷ã8šìò˜Ï1
+G	java:S106)"+Replace this use of System.out by a logger.(ŞŸä«8›ìò˜Ï1
+L	java:S106,"+Replace this use of System.out by a logger.(¤øÎıÿÿÿÿ8œìò˜Ï1
+F	java:S106/"+Replace this use of System.out by a logger.(’ïÆh8œìò˜Ï1
+L	java:S1062"+Replace this use of System.out by a logger.(ºĞ¸˜ÿÿÿÿÿ8ìò˜Ï1
+L	java:S1065"+Replace this use of System.out by a logger.(ıÊˆáüÿÿÿÿ8ìò˜Ï1
+F	java:S1069"+Replace this use of System.out by a logger.(ü¶×`8ìò˜Ï1

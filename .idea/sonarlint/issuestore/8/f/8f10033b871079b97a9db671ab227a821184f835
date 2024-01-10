@@ -1,0 +1,11 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜—Æ÷øÿÿÿÿ
+^
+java:S2259"AA "NullPointerException" could be thrown; "out" is nullable here.(„¸Ç§8‰öõ˜Ï1
+a
+java:S2095"DUse try-with-resources or close this "Socket" in a "finally" clause.(ØªÒñ8‰öõ˜Ï1
+X	java:S125"<This block of commented-out lines of code should be removed.(·äÙÅ8Žöõ˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(‚ìÛ€ûÿÿÿÿ8öõ˜Ï1
+G	java:S106"+Replace this use of System.out by a logger.(ª®Ø¹8“öõ˜Ï1
+L
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8”öõ˜Ï1

@@ -1,0 +1,15 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜—Æ÷øÿÿÿÿ
+c
+java:S2259:"GA "NullPointerException" could be thrown; "bufReader" is nullable here.(ä™Žj8ÇÀô˜Ï1
+š
+java:S1130	"xRemove the declaration of thrown exception 'java.net.UnknownHostException' which is a subclass of 'java.io.IOException'.(Ö»ä€ýÿÿÿÿ8ÊÀô˜Ï1
+G	java:S106
+"+Replace this use of System.out by a logger.(Ýß‰Þ8ËÀô˜Ï1
+X	java:S125"<This block of commented-out lines of code should be removed.(Øôüü8ÌÀô˜Ï1
+X	java:S125"<This block of commented-out lines of code should be removed.(™£ÐÍ8æÀô˜Ï1
+L	java:S106"+Replace this use of System.out by a logger.(®–ÝÉþÿÿÿÿ8êÀô˜Ï1
+G	java:S106("+Replace this use of System.out by a logger.(­‚î…8íÀô˜Ï1
+L	java:S106*"+Replace this use of System.out by a logger.(Žªáÿùÿÿÿÿ8íÀô˜Ï1
+L
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8ïÀô˜Ï1
