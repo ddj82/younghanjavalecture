@@ -421,8 +421,6 @@ n
 >src/school_17/thread03_002_synchronized/MainThreadExample.java,d\1\d1bf5088f5953d44ee51e05ba7040d86762c1407
 g
 7src/school_17/thread03_002_synchronized/Calculator.java,f\9\f9fc51d6ae75cbf01efac09037e41091fd455dcc
-T
-$src/school_17/thread04/ThreadBB.java,b\8\b8dfec5271389e185cf43ea122f786c9dd5198ac
 V
 &src/school_17/thread04/ThreadWait.java,6\d\6df04127a847c05f98152efb580e9e75d9c5f194
 R

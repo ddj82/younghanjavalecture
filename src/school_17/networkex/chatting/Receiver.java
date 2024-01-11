@@ -3,38 +3,37 @@ package school_17.networkex.chatting;
 import java.io.*;
 import java.net.*;
 
-public class Receiver implements Runnable {
+//클라이언트의 샌드틀래스에서 서버로 전송하는 데이터관리는 **리시버에서만
+public class Receiver implements Runnable { //17-&30
 
-    Socket socket;
-    DataInputStream in;
-    String name;
-    User user = new User();
+    Socket socket; //17.null //20-&100 클라이언트로 데이터를 주고 받을 수 있는 소켓객체
+    DataInputStream in; //17.null //21 클라이언트에서 &100소켓에 들어오는 데이터가 있으면 감지하는 객체
+    String name; //17.null //24-"둘리"
+    User user = new User(); //17.&50 //19-&10
 
-    /*
-     * 전역변수들을 전부 초기화 합니다.
-     * 또한 user클래스에 AddClient를 호출하여 사용자를 등록합니다.
-     */
 
-    public Receiver(User user, Socket socket) throws Exception { //9 //2번을 받음"127.0.0.1", 7777
-        this.user = user;
-        this.socket = socket;
-        in = new DataInputStream(socket.getInputStream()); //10 //7에서 담은닉네임 여기담아
-        this.name = in.readUTF(); //UTF-8로 인코딩 후 읽어옴 //11 //7에서 인코딩한 닉네임 여기담아
-        user.AddClient(name, socket); //사용자 등록 //12등록, AddClient실행 닉네임,7777
+
+    public Receiver(User user, Socket socket) throws Exception { //18(&10, &100) 대입
+        this.user = user; //19 this.user = &10
+        this.socket = socket; //20 this.socket = &100
+        in = new DataInputStream(socket.getInputStream()); //21 클라이언트에서 &100소켓에 들어오는 데이터가 있으면 감지하는 객체
+        this.name = in.readUTF(); //22 클라이언트에서 데이터가 들어올때까지 *대기중
+        //24 Client클래스의 23번에 의해서 writeUTF("둘리")받아옴
+        user.AddClient(name, socket); //25 &10.AddClient("둘리", &100) //29끝내고 Receiver호출한놈으로
     }
 
-    public void run() {
+    public void run() { //32 서버31에서호출
         try {
             while (true) {
-                System.out.println("리시버클래스1");
-                String msg = in.readUTF(); //in에서 들어온 메세지를 UTF-8로 인코딩 후 읽어옴 //19메세지 읽을거 생길떄까지 대기
-                //20콘솔메시지 인코딩된거 읽기로 인코딩후 리시버msg에 저장
-                System.out.println("리시버클래스2");
-                user.sendMsg(msg, name); //name이름을 가진 user가 msg라는 메세지를 보냄
-                //21 //20콘솔메세지로 받은 내용=msg thisname은 닉네임 //유저에 샌드엠에스지메소드 호출
-                System.out.println("리시버클래스3");
-                if (msg.equals("종료")) {
+                String msg = in.readUTF();
+                //33 String msg = 클라이언트에서 &100소켓에 들어오는 데이터가 있으면 감지하는 객체에 readUTF()로 들어올때까지 *대기중
+                //34 샌드32에서 "하이요" 받음
+                if (msg.equals("나가기")) {
+                    DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+                    out.writeUTF("종료");
                     user.RemoveClient(this.name);
+                } else {
+                    user.sendMsg(msg, name); //35 sendMsg("하이요", "둘리") &10 호출
                 }
             }
         } catch (Exception e) {

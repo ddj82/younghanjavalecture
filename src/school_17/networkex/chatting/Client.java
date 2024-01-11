@@ -3,56 +3,46 @@ package school_17.networkex.chatting;
 import java.io.*;
 import java.net.*;
 
+//서버에서 전송하는 데이터를 감지하는 객체 클라이언트글래스
 public class Client {
 
-    public static void main(String[] args) {
-        Socket socket = null;
-        DataInputStream in = null; //이 변수는 사용가자 입력하는 채팅 부분에 해당
-        BufferedReader in2 = null; //이 변수는 사용자의 닉네임에 해당
+    public static void main(String[] args) { //클라이언트클래스 실행
+        Socket socket = null; //10 //14.1-&100 //서버와 통신가능한 소켓객체 생성
 
-        DataOutputStream out = null; //이 변수는 사용자가 입력한 데이터를 출력할 때 사용
+        DataInputStream in = null; //11 //15. 14-&100소켓에 연결된 서버에서 데이터가 들어오는지 감지하는 객체
+
+        BufferedReader in2 = null; //12 //16 클라이언트의 콘솔창에서 입력받는 객체
+
+        DataOutputStream out = null; //13 //17 클라이언트에서 서버로 데이터를 전송(출력)하는 객체
 
         try {
-            InetAddress ia = null; //Local Host IP Address 가져오기 위한 변수
-//			ia = InetAddress.getLocalHost(); //현재 PC의 IP Address 가져오기
-//			socket = new Socket(ia, 7777); //서버의 IP와 port번호 입력
-            socket = new Socket("127.0.0.1", 7777); //서버의 IP와 port번호 입력 //2
+            InetAddress ia = null;
 
-            /*
-             * DataInputStream은 입력 스트림을 받는 매개변수이며,
-             * socket.getInputStream()함수를 통해 소켓에서 전달되는 데이터 스트림을 읽어옵니다.
-             * BufferedReader는 Scanner와 비슷한 개념입니다.
-             * Scanner보다 빠르다는 장점이 있지만 String형으로 버퍼에 저장하기 때문에
-             * 따로 데이터를 가공해서 사용해야하는 경우가 많습니다.
-             */
-            in = new DataInputStream(socket.getInputStream());
-            in2 = new BufferedReader(new InputStreamReader(System.in));
-            out = new DataOutputStream(socket.getOutputStream());
-            System.out.println("클라이언트클래스대기"); //4
-            System.out.println("닉네임을 입력해주세요 : ");//4
-            String data = in2.readLine(); //채팅에 사용할 닉네임을 받아옵니다. //6입력까지 대기 //입력하면in2로
-            System.out.println("닉네임 보내기1");
-            out.writeUTF(data); //닉네임을 UTF-8로 변경 후 출력스트림에 넣습니다 //7입력닉네임 인코딩
-            System.out.println("닉네임 보내기2");
-            Thread th = new Thread(new Send(out)); //새로운 스레드에 out을 집어넣도록 합니다. //8리시버,샌드스레드
-            System.out.println("닉네임 보내기3");
-            th.start(); //스레드 시작  //18 //샌드클래스 런메소드
-            System.out.println("닉네임 보내기4");
+            socket = new Socket("127.0.0.1", 7777); //14-&100
+
+            in = new DataInputStream(socket.getInputStream()); //15 서버에서 들어오는 데이터가 있는지 감지하는 객체
+            in2 = new BufferedReader(new InputStreamReader(System.in)); //16 클라이언트의 콘솔창에서 입력받는 객체
+            out = new DataOutputStream(socket.getOutputStream()); //17 클라이언트에서 서버로 데이터를 전송(출력)하는 객체
+            //3개의 객체만 생성(15.16.17)
+
+            System.out.println("닉네임을 입력해주세요 : "); //18
+            String data = in2.readLine(); //19 클라이언트의 콘솔창에서 데이터를 입력하기 전까지 *대기중
+            //"둘리"입력 =>data
+            out.writeUTF(data); //23 서버로데이터를전송(출력)하는객체.writeUTF("둘리")
+            Thread th = new Thread(new Send(out)); //24 new //28 Thread-&60 (new //25 Send-&40(클라이언트에서 서버로 데이터를 전송(출력)하는 객체))
+            th.start(); //29 샌드클래스의 런메소드호출
 
         } catch (IOException e) {
             System.out.println("Client에러1 : " + e.getMessage());
         }
 
         try {
-            /*끊어기지 전까지는 계속 채팅을 입력받기 때문에
-             * 무한루프(while)안에서 동작합니다.
-             * 만일 끊고 싶다면 break에 대한 조건문을 걸면 됩니다.
-             */
-            while (true) {
-                System.out.println("클라이언트while문1");
-                String str2 = in.readUTF(); //23 //유저클래스에서 쓰기로인코딩된 닉네임:메세지 형식 str2에 저장
-                System.out.println("클라이언트while문2");
-                System.out.println(str2); //str2출력
+
+            while (true) { //30
+                String str2 = in.readUTF(); //31 &100소켓에 연결된 서버에서 데이터가 들어올때까지 *대기중 //34 다시 연결된 서버에서 데이터가 들어올때까지 대기
+                //32 서버의 User클래스38번으로 .writeUTF("둘리" + " : " + "하이요") 받음 => str2
+                System.out.println(str2);
+                //33 "둘리 : 하이요" 출력, 종료라는글자 없어서 if문 안타고 while문 진행
                 if (str2.equals("종료")) {
                     break;
                 }

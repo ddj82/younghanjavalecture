@@ -4,55 +4,56 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class User {
+//서버에서 클라이언트클래스로 데이터를 전송하는 객체 유저클래스
+public class User { //2-&10
     HashMap<String, DataOutputStream> clientmap = new HashMap<String, DataOutputStream>();
-    //clientmap은 String형의 key와 DataOutputSream형의 Value(값)을 받음
 
-    public synchronized void AddClient(String name, Socket socket) { //13 //닉네임,7777 받음
+
+
+    public synchronized void AddClient(String name, Socket socket) { //25 //리시버25에서 호출 AddClient("둘리", &100)
+
         try {
-            System.out.println("유저1");
-            sendMsg(name + " 님이 입장하셨습니다.", "Server"); //server에 입장 메세지 전달
-            System.out.println("유저2");
-            clientmap.put(name, new DataOutputStream(socket.getOutputStream())); //16 //참여한 클라이언트 1개임
-            //HashMap의 put(key, value)함수는 key와 value를 받는다
-            System.out.println("유저3");
-            System.out.println("채팅 참여 인원 : " + clientmap.size()); //17 출력
+            sendMsg(name + " 님이 입장하셨습니다.", "Server"); //26 sendMsg("둘리 님이 입장하셨습니다.", "Server")호출
+            clientmap.put(name, new DataOutputStream(socket.getOutputStream()));
+            //28 clientmap.put("둘리", new DataOutputStream(&100소켓의 클라이언트로 전송하는객체)) //clientmap size => 1됨
+
+            System.out.println("채팅 참여 인원 : " + clientmap.size()); //29 clientmap.size() = 1 출력후 AddClient호출한놈으로
 
         } catch (Exception e) {
-            System.out.println("AddClient에러 : " + e.getMessage());
+            System.out.println("User에러1 : " + e.getMessage());
         }
 
     }
 
     public synchronized void RemoveClient(String name) {
         try {
-            System.out.println("유저4");
-            clientmap.remove(name); //name value를 가지는 client 제거
-            System.out.println("유저5");
+            if(clientmap.get(name) != null) {
+                sendMsg(name + " 님이 퇴장하였습니다.", "Server");
+            }
+            clientmap.remove(name);
             sendMsg(name + " 님이 퇴장하였습니다.", "Server");
             System.out.println("채팅 참여 인원 : " + clientmap.size());
+            if(clientmap.size()==0) {
+                Socket socket = new Socket(InetAddress.getLocalHost() , 7777);
+                socket.close();
+            }
         } catch (Exception e) {
-            System.out.println("RemoveClient에러 : " + e.getMessage());
+            System.out.println("User에러2: "+e.getMessage());
         }
     }
 
 
-    public synchronized void sendMsg(String msg, String name) throws Exception {
-        //14 //msg = "닉네임님이입장하였습니다" name = "Server"
-        //21 //msg = 메세지 name = 닉네임
-        //clientmap의 key값들을 읽어옵니다.
-        System.out.println("유저6");
-        Iterator iterator = clientmap.keySet().iterator(); //15 //키값 > 닉네임입장문구 덩어리로모아 //21 키값모아
-        System.out.println("유저7");
+    public synchronized void sendMsg(String msg, String name) throws Exception { //26에서 호출(msg = "둘리 님이 입장하셨습니다.",name = "Server")
+        //35 리시버35에서 호출 "하이요", "둘리"
+
+        Iterator iterator = clientmap.keySet().iterator(); //27 Iterator iterator = null //처음엔 null이라(clientmap.size) while문 안탐
+        //36 clientmap사이즈 변경으로 keySet생겨서 while문 탐
         while (iterator.hasNext()) { //key값의 next가 존재한다면 계속 루프
-            //22 넥스트생김
-            //채팅을 입력한 유저 이름을 받아와서
-            System.out.println("유저8");
-            String clientname = (String) iterator.next(); //22받아옴
-            System.out.println("유저9");
-            //양식대로 채팅을 출력합니다.
-            clientmap.get(clientname).writeUTF(name + " : " + msg); //23 //받아온거 닉네임 : 메세지 쓰기로인코딩
-            System.out.println("유저10");
+            String clientname = (String) iterator.next();
+            //37 clientname = (String) "둘리"
+
+            clientmap.get(clientname).writeUTF(name + " : " + msg);
+            //38 clientmap.get(clientname)=&100소켓의 클라이언트로 전송하는객체.writeUTF("둘리" + " : " + "하이요") 보내고 샌드런매소드로
         }
     }
 

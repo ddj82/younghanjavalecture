@@ -4,37 +4,39 @@ import java.net.*;
 
 public class Server {
 
-    public static void main(String[] args) {
-        Socket socket = null; //Client와 통신하기 위한 Socket 생성
-        User user = new User(); //채팅방에 접속해 있는 Client 관리 객체
-        ServerSocket server_socket = null; //Client 접속을 받기 위한 ServerSocket 객체 생성
+    public static void main(String[] args) { //서버클래스 실행
+        Socket socket = null; //1 //14.2-&100
+        User user = new User(); //2-&10
+        ServerSocket server_socket = null; //3 //6.1-&1
 
-        //스레드 할당을 위한 정수
-        int count = 0;
-        //10개까지 스레드 할당, 즉 채팅방에 10명이 접속 사능
-        Thread thread[] = new Thread[10];
+
+        int count = 0; //4 //서버-32 count=1
+
+        Thread thread[] = new Thread[10]; //5
 
         try {
-            server_socket = new ServerSocket(7777); //서버 포트로 소켓을 연다 //1
+            server_socket = new ServerSocket(7777); //6
+            System.out.println("서버시작"); //7
             while (true) {
-                socket = server_socket.accept(); //통신이 종료되기 전까지 연결 //3
-                System.out.println("클라이언트접속 서버클래스대기"); //5
-                /*
-                 * receiver Class에서 implements Runnable을 사용했기 때문에
-                 * Thread 객체 안에 스레드를 사용하려는 객체를 넣어줘서 객체화를 할 수 있습니다.
-                 */
-                //Receiver 클래스를 Thread에서 돌림
-                thread[count] = new Thread(new Receiver(user, socket)); //8리시버,샌드스레드
-                System.out.println("서버1");
-                thread[count].start(); //18 //리시버클래스 런메소드
-                System.out.println("서버2");
-                count++; // //빈스레드 되고 새클라이언트 오면 돌거야
-                System.out.println("서버3");
-            }//while문 종료 중괄호
+                System.out.println("클라이언트[" + count + "]번 접속 전"); //8 //33
+                socket = server_socket.accept();//9 대기중 Client에서 소켓객체를 생성하는 순간 요청이 들어오면서 만들어짐. //34 클라이언트가 추가될때까지 대기중
+//				//14.1 ㄴserver_socket.accept(); = Client클래스에서 &100부여, = socket
+                if (socket.isClosed()) { //15
+                    break;
+                }
+                System.out.println("클라이언트["+count+"]번 접속: "+ System.identityHashCode(socket)); //16
+
+
+                thread[count] = new Thread(new Receiver(user, socket));
+//				//17 new Thread-&20(new 17.Receiver-&30(user-&10, socket-&100)) //리시버-30에서 끝내고 new Thread-&20 = thread[count]에 하나 추가
+                thread[count].start(); //31 &30번지 리시버런메소드호출
+                count++; //32
+            }
 
         } catch (Exception e) {
             System.out.println("Server에러 : " + e.getMessage());
         }
+        System.out.println("서버가 종료되었습니다.");
     }
 
 }
