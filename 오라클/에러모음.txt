@@ -23,5 +23,308 @@ ORA-01440: column to be modified must be empty to decrease precision or scale
 *Cause:    
 *Action:
 
-=>테이블에서 컬럼의 자료형을 변경(MODIFY)할 때, 
+=> 테이블에서 컬럼의 자료형을 변경(MODIFY)할 때, 
 NUMBER자료형의 사이즈를 줄일 때 발생하는 오류
+
+
+
+
+명령의 93 행에서 시작하는 중 오류 발생 -
+INSERT INTO EMP02
+VALUES (NULL, NULL, 'SALESMAN', 10)
+오류 발생 명령행: 94 열: 9
+오류 보고 -
+SQL 오류: ORA-01400: cannot insert NULL into ("TEST"."EMP02"."EMPNO")
+01400. 00000 -  "cannot insert NULL into (%s)"
+*Cause:    An attempt was made to insert NULL into previously listed objects.
+*Action:   These objects cannot accept NULL values.
+
+=> 컬럼의 제약조건으로 NOT NULL이 있는데 컬럼의 값으로 NULL값을 넣었을때 오류
+
+
+
+
+
+명령의 113 행에서 시작하는 중 오류 발생 -
+INSERT INTO EMP03
+VALUES ('emp02', 7499, 'JONES', 'MANAGER', 20)
+오류 보고 -
+ORA-00001: unique constraint (TEST.SYS_C007033) violated
+
+=> 컬럼의 제약조건으로 UNIQUE가 있는데 컬럼의 값으로 중복값(다른 컬럼에 이미 있는 값)을 넣었을때 오류
+
+
+
+명령의 121 행에서 시작하는 중 오류 발생 -
+INSERT INTO EMP06
+VALUES ('emp05', NULL, 'JONES', 'SALESMAN', 10)
+오류 발생 명령행: 121 열: 13
+오류 보고 -
+SQL 오류: ORA-00942: table or view does not exist
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+=> 존재하지 않는 테이블명으로 쿼리문을 작성하면 나는 오류
+
+
+
+
+
+ORA-00904: "EEE": invalid identifier
+00904. 00000 -  "%s: invalid identifier"
+*Cause:    
+*Action:
+124행, 8열에서 오류 발생
+
+=> 테이블에 존재하지 않는 컬럼으로 쿼리문을 작성하면 나는 오류
+
+
+
+
+명령의 132 행에서 시작하는 중 오류 발생 -
+CREATE TABLE EMP03(
+EMPNO NUMBER(4) PRIMARY KEY,
+ENAME VARCHAR2(10) NOT NULL,
+JOB VARCHAR2(9),
+DEPTNO NUMBER(4)
+)
+오류 보고 -
+ORA-00955: name is already used by an existing object
+00955. 00000 -  "name is already used by an existing object"
+*Cause:    
+*Action:
+
+=> 이미 존재하는 테이블명으로 테이블을 생성할 때 나는 오류
+
+
+
+
+
+명령의 26 행에서 시작하는 중 오류 발생 -
+INSERT INTO EMP05 VALUES (7588, 'TOMS', 'A')
+오류 보고 -
+ORA-02290: check constraint (TEST.SYS_C007044) violated
+
+=> 컬럼의 제약조건으로 CHECK가 있는데 컬럼의 값으로 CHECK의 지정 범위 값이 아닌 값을 넣었을 때 나는 오류
+
+
+
+
+
+명령의 40 행에서 시작하는 중 오류 발생 -
+INSERT INTO EMP07 VALUES ('TOMS', 'TOMS', 'M', 1500)
+오류 발생 명령행: 40 열: 27
+오류 보고 -
+SQL 오류: ORA-01722: invalid number
+01722. 00000 -  "invalid number"
+*Cause:    The specified number was invalid.
+*Action:   Specify a valid number.
+
+=> 컬럼에 값을 넣을 때, 해당 컬럼의 자료형이 아닌 다른 자료형 값을 넣었을 때 나는 오류
+
+
+
+
+
+명령의 63 행에서 시작하는 중 오류 발생 -
+INSERT INTO EMP06 VALUES (7889, 'JERRY', 'CEO', 50)
+오류 보고 -
+ORA-02291: integrity constraint (TEST.SYS_C007053) violated - parent key not found
+
+=> 컬럼의 제약조건으로 Foreign_Key가 있는데 컬럼의 값으로 Foreign_Key의 범위 값이 아닌 값을 넣었을 때 나는 오류
+*Foreign_Key의 범위 값은 주인테이블의 기본키 값들과 NULL 뿐이다. 
+
+
+
+
+
+
+명령의 3 행에서 시작하는 중 오류 발생 -
+CREATE TABLE EMP07 (
+EMPNO NUMBER(4) PRIMARY KEY,
+ENAME VARCHAR2(10) NOT NULL,
+JOB VARCHAR2(9),
+DEPTNO NUMBER(4),
+CONSTRAINT EMP07_DEPTNO_FK FOREIGN KEY(DEPTNO) REFERENCES DEPT02(DEPTNO)
+)
+오류 보고 -
+ORA-02270: no matching unique or primary key for this column-list
+02270. 00000 -  "no matching unique or primary key for this column-list"
+*Cause:    A REFERENCES clause in a CREATE/ALTER TABLE statement
+           gives a column-list for which there is no matching unique or primary
+           key constraint in the referenced table.
+*Action:   Find the correct column names using the ALL_CONS_COLUMNS
+           catalog view
+
+=> 테이블레벨에서 Foreign_Key를 지정하는 컬럼이 있을 때, 
+주인테이블의 기본키 컬럼명을 잘못 입력했을 때 나는 오류
+
+
+
+
+
+명령의 11 행에서 시작하는 중 오류 발생 -
+CREATE TABLE EMP07 (
+EMPNO NUMBER(4) PRIMARY KEY,
+ENAME VARCHAR2(10) NOT NULL,
+JOB VARCHAR2(9),
+DNO NUMBER(4),
+DNA VARCHAR2(10),
+CONSTRAINT EMP07_DEPTNO_FK FOREIGN KEY(DNO, DNA) REFERENCES DEPT02(DEPTNO, DNAME),
+CONSTRAINT EMP07_DEPTNO_FK FOREIGN KEY(DNO) REFERENCES DEPT01(DEPTNO)
+)
+오류 보고 -
+ORA-02264: name already used by an existing constraint
+02264. 00000 -  "name already used by an existing constraint"
+*Cause:    The specified constraint name has to be unique.
+*Action:   Specify a unique constraint name for the constraint.
+
+=> 테이블레벨에서 컬럼에 제약조건을 넣을 때, 
+해당 제약조건명칭과 똑같은 이름이 존재할 때 나는 오류
+
+
+
+
+
+
+명령의 21 행에서 시작하는 중 오류 발생 -
+DROP TABLE DEPT01 PURGE
+오류 보고 -
+ORA-02449: unique/primary keys in table referenced by foreign keys
+02449. 00000 -  "unique/primary keys in table referenced by foreign keys"
+*Cause:    An attempt was made to drop a table with unique or
+           primary keys referenced by foreign keys in another table.
+*Action:   Before performing the above operations the table, drop the
+           foreign key constraints in other tables. You can see what
+           constraints are referencing a table by issuing the following
+           command:
+           SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = "tabnam";
+
+=> 주종관계가 존재하는 테이블을 제거할 때, 
+해당 테이블의 노예테이블이 남아있을 때 나는 오류
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
