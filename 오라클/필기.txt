@@ -2747,7 +2747,7 @@ CONSTRAINT : 테이블의 속성을 지정할 때 해당 속성에 들어오는 
 USER_CONSTRAINTS
 
 
-(데이터 딕셔너리 쿼리문 예시)
+<데이터 딕셔너리 쿼리문 예시>
 
 SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
 FROM USER_CONSTRAINTS
@@ -2779,6 +2779,11 @@ WHERE TABLE_NAME = 'EMP03';
 예: EMP04_EMPID_PK / EMPID_PK / EMP04_PK / PK
 제약조건 정식형식 : CONSTRAINT 제약조건이름 제약조건유형
 - 컬럼레벨 정의 방법 : 컬럼 안에 제약 조건을 같이 기술하는 것
+
+<<해당 컬럼의 제약조건 검색>>
+SELECT * FROM USER_CONSTRAINTS;
+SELECT * FROM USER_CONS_COLUMNS;
+
 
 
 
@@ -2815,8 +2820,8 @@ DROP CONSTRAINT DEPT03_DEPTNO_PK;
 - 입력 할 수 있는 값의 범위를 설정해 줌
 
 컬럼레벨 정의형식 : 
-컬럼명 CONSTRAINT [제약조건명] [제약조건] (범위)
-컬럼명 [제약조건명] [제약조건] (범위)
+컬럼명 CONSTRAINT [제약조건명] [제약조건] (해당 컬럼값의 범위)
+컬럼명 [제약조건명] [제약조건] (해당 컬럼값의 범위)
 
 형식 : 
 CREATE TABLE 테이블명 (
@@ -2827,18 +2832,13 @@ COL3 VARCHAR2(20)
 
 
 
-<<해당 컬럼의 제약조건 검색>>
-SELECT * FROM USER_CONSTRAINTS;
-SELECT * FROM USER_CONS_COLUMNS;
-
-
 
 
 <FOREIGN KEY(참조키, 외래키) 제약조건>
 - 주인테이블의 기본키를 이용하여 노예테이블에 일반컬럼이나 기본키로 사용하는 방법
 - 반드시 주인테이블의 기본키로만 이용할 수 있다.
-- 반드시 부모의 기본키 속성(컬럼)안에 들어있는 값만을 가져다 쓸 수 있다. 그 이외의 값은 쓸 수 없다 (단, NULL은 사용가능)
-- 부모의 기본키 속성값을 가져다 쓸 수 있으면서 중복으로 사용가능
+- 반드시 주인의 기본키 속성(컬럼)안에 들어있는 값만을 가져다 쓸 수 있다. 그 이외의 값은 쓸 수 없다 (단, NULL은 사용가능)
+- 주인의 기본키 속성값을 가져다 쓸 수 있으면서 중복으로 사용가능
  
 컬럼레벨 방식 단축형식 : 
 노예의 컬럼명 주인의 기본키자료형 REFERENCES 주인테이블명(주인테이블 기본키컬럼명)
@@ -2875,9 +2875,9 @@ DEPTNO NUMBER(4) REFERENCES DEPT01(DEPTNO)
 형식 : 
 컬럼명 DEFAULT 해당 자료형에 맞는 값으로 지정
 예 : 
-컬럼명 자료형 DEFAULT 0
-컬럼명 자료형 DEFAULT '가'
-컬럼명 자료형 DEFAULT SYSDATE
+컬럼명 자료형 DEFAULT 0 		--숫자형
+컬럼명 자료형 DEFAULT '가'		--문자형
+컬럼명 자료형 DEFAULT SYSDATE	--날짜형
 
 **조건 : 반드시 제약조건 중 가장 처음에 기술해야 한다.
 실질적으로 제약조건은 아님 그래서 제약조건란에 표시가 되지 않음
@@ -2885,6 +2885,164 @@ DEPTNO NUMBER(4) REFERENCES DEPT01(DEPTNO)
 
 
 
+//
+//27
+//필기
+//
+
+
+
+
+TCL(Transaction Control Language) : 트랜젝션(작업)을 제어하는 명령어 = 트랜젝션 제어어
+commit : 데이터베이스에 전체 데이터의 갱신결과를 영구적으로 확정하는 기능
+rollback : 데이터베이스에 전체 데이터의 갱신 결과를 영구적으로 전체 되돌리는 기능
+checkpoint(savepoint명령) : rollback하는 곳의 시점을 지정하여 전체 rollback이 아닌 원하는 지점까지의 rollback기능을 제공하는 명령어
+
+
+
+<트랜잭션(Transaction)>
+- 데이터베이스에서 데이터를 처리하는 하나의 논리적인 작업 단위를 의미
+
+- COMMIT
+  저장되진 않은 모든 데이터를 데이터베이스에 저장하고,
+  현재의 트랜잭션을 종료하는 명령. 즉, 정상 처리되어 확정한다는 것
+  Transaction(INSERT, UPDATE, DELETE) 작업내용을 DB에 저장.
+
+- SAVEPOINT
+  현재까지의 트랜잭션을 특정 이름으로 지정하는 명령.
+
+- ROLLBACK
+  저장되지 않은 모든 데이터 변경사항을 취소하고,
+  현재의 트랜잭션을 끝내라는 명령.
+   Transaction(INSERT, UPDATE, DELETE) 작업내용을 취소.
+
+- 자동 COMMIT과 자동 ROLLBACK이 되는 경우
+  SQL*PLUS 정상 종료는 자동 COMMIT, 비정상 종료는 자동 ROLLBACK
+  DDL과 DCL 명령문이 수행 된 경우 자동 COMMIT
+
+
+
+<트랜잭션 조건(ACID)>
+1. 원자성(Atomicity) : 트랜잭션은 모두 다 정상적으로 완료되거나 아니면 모두 다 처리가 되지 않아야 한다.
+
+2. 일관성(Consitency) : 트랜잭션은 어느 곳에서든 어느 시점에든 동일하게 데이터가 유지되어야 한다.
+
+3. 독립성(= 고립성 = Isolation) : 하나의 트랜잭션이 실행되면 다른 작업은 해당 트랜잭션 중간에 끼어들 수 없어야 한다. 
+트랜잭션은 다른 트랜잭션과 독립적으로 실행되어야 한다.
+
+4. 영속성(= 지속성 = Durability) : 작업이 완료(COMMIT) 된 트랜잭션은 시스템의 에러가 발생되어도 영구적으로 데이터의 저장이 되어야 한다.
+
+
+
+<View(가상테이블)>
+- 테이블과는 달리 데이터 저장 공간이 없다.
+- 뷰는 단지 쿼리문을 저장하고 있는 객체이다.
+
+- 뷰는 실제 자료를 갖지는 않지만, 
+뷰를 통해 테이블의 데이터를 가져올 수는 있다.
+
+- 뷰는 실제 데이터가 저장되는 공간이 아니므로
+DML(INSERT, UPDATE, DELETE)을 총한 작업을 할 수는 없다.(단, 단순뷰 제외)
+- 하나의 테이블에 뷰의 개수는 제한이 없다.
+
+- 문법(형식 = SYNTAX)
+CREATE VIEW 뷰이름
+AS
+SELECT 컬럼명 FROM 테이블명 [WHERE 조건];
+
+
+
+
+<<서브쿼리(SUB QUERY)>>
+- 서브쿼리는 하나의 SQL문 안에 포함된 또 하나의 SELECT문을 의미함.
+- 서브쿼리를 포함하고 있는 쿼리를 메인쿼리, 포함된 또 하나의 쿼리를 서브쿼리하고 한다.
+- 서브쿼리는 비교 연산자의 오른쪽에 기술해야 하고 반드시 괄호로 묶어야 한다.
+   (예외, INSERT ALL INTO 문의 SELECT절, CREATE TABLE 복제문의 SELECT절 등)
+- 서브쿼리는 메인쿼리가 실행되기 전에 한 번만 실행된다.
+- 단일 행 서브쿼리, 다중 행 서브쿼리 모든 서브쿼리의 SELECT절 안의 컬럼은 한 개여야만 한다.
+
+<단일 행 서브쿼리(Single Row)>
+- 오직 하나의 ROW(줄)만을 반환
+- 단일 행 비교 연산자(=, >, >=, <, <=, <>)를 사용
+
+<다중 행 서브쿼리>
+- 서브쿼리에서 반환되는 결과가 하나 이상의 행일 때 사용
+- 다중 행 연산자(IN, ANY, ALL)를 사용
+
+
+<예시 : >
+단일 행 서브쿼리
+SELECT * FROM EMP WHERE DEPTNO >= (SELECT DEPTNO FROM DEPT WHERE DEPTNO = 10);
+다중 행 서브쿼리
+SELECT * FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DEPTNO <> 40);
+
+
+
+<서브쿼리에서 그룹함수 사용법>
+예시 : 평균 급여보다 더 많은 급여를 받는 사원 검색
+SELECT ENAME, SAL FROM EMP 
+WHERE SAL > (SELECT AVG(SAL) FROM EMP);
+
+
+
+<ALL 연산자>
+- 컬럼명 < ALL(100, 200, 300) -- 최소값(100)보다 작다. (소<소)
+- 컬럼명 > ALL(100, 200, 300) -- 최대값(300)보다 크다. (대>대)
+
+<ANY 연산자>
+- 컬럼명 < ANY(100, 200, 300) -- 최대값(300)보다 작다. (소<대)
+- 컬럼명 > ANY(100, 200, 300) -- 최소값(100)보다 크다. (대>소)
+
+
+
+
+<서브쿼리를 이용한 데이터 추가>
+INSERT INTO EMP03 
+SELECT * FROM EMP;
+
+INSERT INTO DEPT01 
+SELECT * FROM DEPT;
+
+
+
+
+<서브쿼리를 이용한 데이터 변경>
+UPDATE DEPT01
+SET LOC = (SELECT LOC FROM DEPT01 WHERE DEPTNO = 40)
+WHERE DEPTNO = 10;
+
+
+- 서브쿼리를 이용한 두 개 이상의 컬럼에 대한 값 변경(단일행 다중컬럼)
+UPDATE DEPT01
+SET (DNAME, LOC) = (SELECT DNAME, LOC FROM DEPT WHERE DEPTNO = 30) 
+WHERE DEPTNO = 10;
+
+- 서브쿼리를 이용한 두 개 이상의 컬럼에 대한 두 개 이상의 값 변경(다중행 다중컬럼)
+UPDATE DEPT01
+SET DNAME = (SELECT DNAME FROM DEPT WHERE DEPT.DEPTNO = EMP01.DEPTNO);
+
+
+
+<서브쿼리를 이용한 데이터 삭제>
+DELETE FROM EMP01
+WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME = 'SALES');
+
+
+
+
+
+
+
+<기존 테이블 데이터까지 복제할 때 새 테이블에 컬럼 추가하면서 만드는>
+CREATE TABLE EMP01
+AS SELECT '테이블별칭'.*, '한번에 지정할 값' AS DNAME FROM 가져올테이블 '테이블별칭';
+**테이블의 별칭은 AS 사용불가 반드시 한칸공백으로 구분
+
+
+
+<기존 테이블 데이터까지 복제 방법2>
+CREATE TABLE EMP01
+AS SELECT 별칭.* FROM 가져올테이블 별칭;
 
 
 
