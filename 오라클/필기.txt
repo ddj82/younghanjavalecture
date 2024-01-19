@@ -2997,6 +2997,7 @@ WHERE SAL > (SELECT AVG(SAL) FROM EMP);
 
 
 <서브쿼리를 이용한 데이터 추가>
+
 INSERT INTO EMP03 
 SELECT * FROM EMP;
 
@@ -3007,10 +3008,10 @@ SELECT * FROM DEPT;
 
 
 <서브쿼리를 이용한 데이터 변경>
+
 UPDATE DEPT01
 SET LOC = (SELECT LOC FROM DEPT01 WHERE DEPTNO = 40)
 WHERE DEPTNO = 10;
-
 
 - 서브쿼리를 이용한 두 개 이상의 컬럼에 대한 값 변경(단일행 다중컬럼)
 UPDATE DEPT01
@@ -3023,7 +3024,9 @@ SET DNAME = (SELECT DNAME FROM DEPT WHERE DEPT.DEPTNO = EMP01.DEPTNO);
 
 
 
+
 <서브쿼리를 이용한 데이터 삭제>
+
 DELETE FROM EMP01
 WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME = 'SALES');
 
@@ -3034,6 +3037,7 @@ WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME = 'SALES');
 
 
 <기존 테이블 데이터까지 복제할 때 새 테이블에 컬럼 추가하면서 만드는>
+
 CREATE TABLE EMP01
 AS SELECT '테이블별칭'.*, '한번에 지정할 값' AS DNAME FROM 가져올테이블 '테이블별칭';
 **테이블의 별칭은 AS 사용불가 반드시 한칸공백으로 구분
@@ -3041,8 +3045,247 @@ AS SELECT '테이블별칭'.*, '한번에 지정할 값' AS DNAME FROM 가져올
 
 
 <기존 테이블 데이터까지 복제 방법2>
+
 CREATE TABLE EMP01
-AS SELECT 별칭.* FROM 가져올테이블 별칭;
+AS SELECT 테이블별칭.* FROM 가져올테이블 테이블별칭;
+
+
+
+
+
+//
+//28
+//필기
+//
+
+
+
+
+<<조인 (JOIN)>>
+
+**JOIN은 각 테이블간에 공통된 컬럼(조건)으로 데이터를 합쳐 표현하는 것.
+
+
+//조인의 유형
+
+<내부 조인 (INNER JOIN) : (= 교집합)>
+- 두 테이블에 공통으로 존재하는 컬럼을 이용하여 합치는 방식
+
+1. 동등 조인 (Equi Join) : 공통 존재 컬럼의 값이 같은 경우를 추출하는 조인 방식
+(INNER JOIN, ANSI INNER JOIN)
+
+2. 교차 조인 (CROSS JOIN) : 조인 조건이 없는 조인 방식
+(CROSS JOIN, ANSI CROSS JOIN)
+
+
+
+<외부 조인 (OUTER JOIN) : (= A 또는 B 또는 합집합)>
+- 특정 테이블의 모든 데이터를 기준으로 다른 테이블의 정보를 추출(다른 테이블에 값이 없어도 출력됨)
+
+1. 왼쪽 외부 조인 (LEFT OUTER JOIN) = A : 왼쪽 테이블의 모든 데이터와 오른쪽 테이블의 동일 데이터를 추출
+(LEFT OUTER JOIN, ANSI LEFT OUTER JOIN)
+
+2. 오른쪽 외부 조인 (RIGHT OUTER JOIN) = B : 오른쪽 테이블의 모든 데이터와 왼쪽 테이블의 동일 데이터를 추출
+(RIGHT OUTER JOIN, ANSI RIGHT OUTER JOIN)
+
+3. 완전 외부 조인 (FULL OUTER JOIN) = 합집합 : 양쪽의 모든 데이터를 추출
+(ANSI FULL OUTER JOIN)
+
+
+
+*Equi Join (동등 조인, 가장 많이 사용)
+- WHERE절에서 조인 조건을 사용 (권장사항 : 조인 조건 개수 = 연결 테이블 수 - 1 이상)
+- 명확성을 위해 컬럼명 앞에 테이블명 또는 테이블 별칭을 설정
+
+형식 : 
+SELECT [테이블별칭1.]컬럼명, [테이블별칭1.]컬럼명, [테이블별칭2.]컬럼명, [테이블별칭2.]컬럼명
+FROM 테이블명1 [테이블별칭1], 테이블명2 [테이블별칭2]
+WHERE 테이블명1.동일한값의컬럼명 = 테이블명2.동일한값의컬럼명
+
+--부서번호를 기준으로 같은 값을 가진 사원 테이블과 부서 테이블 결합 
+SELECT ENAME, DNAME
+FROM EMP, DEPT
+WHERE EMP.DEPTNO = DEPT.DEPTNO;
+
+
+
+*Self Join : 동일 테이블 사이의 조인 
+- 반드시 테이블의 별칭이 존재해야 한다.
+- 반드시 컬럼을 명시할 경우 테이블의 별칭을 생략할 수 없다.
+
+
+
+
+**ANSI Join (미국표준연구소 표준 조인)
+- 다른 DBMS와의 호환성을 위해서는 ANSI 조인을 사용하는 것이 좋다.
+
+*ANSI Inner Join (동등조인과 동일하게 처리)
+형식 : 
+SELECT [테이블별칭 또는 테이블명.]컬럼명1, ...
+FROM 왼쪽기준이되는 테이블명 [테이블별칭]
+[INNER(디폴트)] JOIN 오른쪽기준이되는테이블명 [테이블별칭]
+ON 조인조건
+WHERE 조인조건 이외의 조건 기술; 
+
+
+
+
+**USING을 이용한 조인 조건 지정, ON대신 사용가능.
+(단, 조인 조건에 사용되는 컬럼명이 동일해야 한다.)
+USING을 사용하는 경우 해당 컬럼이 맨 앞에 딱 한 번만 표현된다.
+
+형식 : 
+ON 테이블1의(컬럼명) = 테이블2의(컬럼명) (두 컬럼명이 같을 때)
+=> USING (컬럼명)
+
+
+
+
+<외부 조인>
+- OUTER JOIN : 2개 이상의 테이블이 조인될 때 어느 한쪽 테이블엔 데이터가 존재하는데, 다른 쪽 테이블에는 데이터가 존재하지 않는 경우에, 데이터가 누락되는 문제를 해결하기 위해 사용되는 조인 기법임.
+
+
+1. LEFT OUTER JOIN : FROM절의 테이블에 해당되는 값을 모두 표현하고, 그 뒤에 JOIN절에 해당하는 테이블의 값을 표현하는 방식. 해당 값이 없는 컬럼은 NULL처리 함. (LEFT OUTER JOIN, ANTI LEFT OUTER JOIN)
+
+
+2. RIGHT OUTER JOIN : JOIN절에 해당하는 테이블의 값을 모두 표현하고, 그 뒤에 FROM절의 테이블에 해당되는 값을 표현하는 방식. 해당 값이 없는 컬럼은 NULL처리 함. (RIGHT OUTER JOIN, ANTI RIGHT OUTER JOIN)
+
+
+3. FULL OUTER JOIN : 조인할 두 테이블의 값을 모두 표현하고, 해당 값이 없는 컬럼은 NULL처리 함. (ANSI FULL OUTER JOIN)
+FULL OUTER JOIN은 ANSI조인만 가능하기 때문에 (+)아우터 연산자를 사용하지 못한다
+
+
+*조인에서 권장사항 : 최대 5개 이상의 테이블 정도만 조인해라
+
+
+
+<**여러 개의 테이블을 JOIN>
+여러개의 JOIN절이 존재할 경우 반드시 JOIN절 마다 ON절이 존재해야 한다.
+
+SELECT E.EMPNO, E.ENAME, D.DEPTNO, S.DEPARTMENT_NAME 
+FROM EMP E
+JOIN DEPT D 
+ON E.DEPTNO = D.DEPTNO
+JOIN DEPARTMENTS S 
+ON E.DEPTNO = S.DEPARTMENT_ID;
+
+
+
+
+<(+) : OUTER 연산자의 조건>
+
+- 하나의 조건에 존재하는 컬럼에 동시에 사용할 수 없다.
+예)
+EMP.DEPTNO(+) = DEPT.DEPTNO(+) [불가능] / EMP.DEPTNO(+) = DEPT.DEPTNO [가능]
+
+- 여러 개의 테이블을 조인하는 경우 아우터 연산자는 동일한 테이블의 동일한 컬럼에 아우터 연산자를 연속하여 사용할 수 없다.
+예)
+EMP.DEPTNO(+) = DEPT.DEPTNO AND EMP.DEPTNO(+) = DEPARTMENTS.DEPARTMENT_ID [불가능]
+EMP.DEPTNO(+) = DEPT.DEPTNO AND EMP.DEPTNO = DEPARTMENTS.DEPARTMENT_ID(+) [가능]
+
+
+
+
+<USING(컬럼명) 조건>
+
+- 반드시 조인하는 테이블에 동일한 컬럼이 존재해야 한다.
+- 반드시 SELECT절의 컬림이 *(전체)인 경우만 가능하다.
+
+
+
+
+<세미 조인(SEMI-JOIN)>
+IN, EXISTS 연산자를 이용해 서브쿼리에 있는 데이터에 대해서만 메인쿼리에 추출하는 조인 방법
+예 : 
+SELECT * FROM DEPT B
+WHERE EXISTS(SELECT * FROM EMP E WHERE E.DEPTNO = B.DEPTNO);
+
+
+
+<안티 조인(ANTI-JOIN)>
+NOT IN, NOT EXISTS 연산자를 이용해 서브쿼리에 없는 데이터만 메인쿼리에서 추출하는 조인 방법
+예 : 
+SELECT * FROM DEPT B
+WHERE NOT EXISTS(SELECT * FROM EMP E WHERE E.DEPTNO = B.DEPTNO);
+
+예 : 
+SELECT * FROM EMP E
+WHERE NVL(E.DEPTNO, 0) NOT IN(SELECT DEPTNO FROM DEPT);
+
+
+
+
+<카타시안 조인(CATASIAN PRODUCT)>
+조인 조건이 없는 조인
+안시조인이 아닌 교차조인(CROSS JOIN)
+- 컬럼은 해당 테이블의 컬럼을 모두 합한 개수만큼 
+- 행(줄)은 해당 테이블의 행(줄) 수를 모두 곱한 개수만큼
+예 : 
+SELECT * FROM EMP E, DEPT D;
+
+
+
+
+
+
+
+
+
+//
+//29
+//필기
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
