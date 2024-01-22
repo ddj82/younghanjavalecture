@@ -2934,22 +2934,6 @@ checkpoint(savepoint명령) : rollback하는 곳의 시점을 지정하여 전�
 
 
 
-<View(가상테이블)>
-- 테이블과는 달리 데이터 저장 공간이 없다.
-- 뷰는 단지 쿼리문을 저장하고 있는 객체이다.
-
-- 뷰는 실제 자료를 갖지는 않지만, 
-뷰를 통해 테이블의 데이터를 가져올 수는 있다.
-
-- 뷰는 실제 데이터가 저장되는 공간이 아니므로
-DML(INSERT, UPDATE, DELETE)을 총한 작업을 할 수는 없다.(단, 단순뷰 제외)
-- 하나의 테이블에 뷰의 개수는 제한이 없다.
-
-- 문법(형식 = SYNTAX)
-CREATE VIEW 뷰이름
-AS
-SELECT 컬럼명 FROM 테이블명 [WHERE 조건];
-
 
 
 
@@ -3196,6 +3180,7 @@ EMP.DEPTNO(+) = DEPT.DEPTNO AND EMP.DEPTNO = DEPARTMENTS.DEPARTMENT_ID(+) [가�
 
 <세미 조인(SEMI-JOIN)>
 IN, EXISTS 연산자를 이용해 서브쿼리에 있는 데이터에 대해서만 메인쿼리에 추출하는 조인 방법
+
 예 : 
 SELECT * FROM DEPT B
 WHERE EXISTS(SELECT * FROM EMP E WHERE E.DEPTNO = B.DEPTNO);
@@ -3204,6 +3189,7 @@ WHERE EXISTS(SELECT * FROM EMP E WHERE E.DEPTNO = B.DEPTNO);
 
 <안티 조인(ANTI-JOIN)>
 NOT IN, NOT EXISTS 연산자를 이용해 서브쿼리에 없는 데이터만 메인쿼리에서 추출하는 조인 방법
+
 예 : 
 SELECT * FROM DEPT B
 WHERE NOT EXISTS(SELECT * FROM EMP E WHERE E.DEPTNO = B.DEPTNO);
@@ -3228,9 +3214,6 @@ SELECT * FROM EMP E, DEPT D;
 
 
 
-
-
-
 //
 //29
 //필기
@@ -3240,16 +3223,257 @@ SELECT * FROM EMP E, DEPT D;
 
 
 
+<<View(가상테이블)>>
+
+- 테이블과는 달리 데이터 저장공간이 없다.
+- 뷰는 단지 쿼리문을 저장하고 있는 객체.
+
+- 뷰는 실제 자료를 갖지 않지만, 뷰를 통해 테이블을 관리할 수 있다.
+
+- 하나의 테이블에 뷰의 개수는 제한이 없다.
+
+- 뷰이름 권장사항
+view_테이블명
+테이블명_view
+view_테이블명1_테이블명2
+
+- 문법 (Syntax = 형식)
+CREATE VIEW 뷰이름
+AS
+SELECT 컬럼명 FROM 테이블명 [WHERE 조건];
+
+
+
+<뷰 성격에 따른 가능 범위>
+
+- <단순뷰 (SIMPLE VIEW)> : 
+VIEW를 생성할 서브쿼리에 조인 조건없이 1개의 테이블로 만들어지는 간단한 VIEW. 하나의 TABLE에서 뽑아오며 함수를 사용안한다.
+DML(INSERT, UPDATE, DELETE) 사용 가능
+
+- <복합뷰 (COMPLEX VIEW)> : 
+여러 개의 테이블이 JOIN되어 생성되는 것. 하나 이상의 TABLE에서 뽑아오며 함수(GROUP BY HAVING등과 같은 함수)를 사용한다.
+DML(INSERT, UPDATE, DELETE) 사용 *불가능
+
+- <온라인 VIEW (INLINE VIEW)> : 
+여러 번 사용할 필요없이 1회만 필요한 VIEW일 경우 SQL명령의 FROM절에 VIEW의 서브쿼리 부분을 바로 적어주면 되며 이런 일회용 VIEW를 말함.
 
 
 
 
 
+//*CREATE OR REPLACE VIEW 뷰이름 FROM 테이블 WHERE 조건;
+- 해당 뷰이름으로 만들어져 있다면 재정의를 하고, 없다면 만들어라는 식
 
 
 
 
 
+<<인덱스(Index)>>
+
+- 데이터베이스 테이블에 있는 데이터를 빨리 찾기 위한 용도의 데이터베이스 객체
+- 일종의 색인기술 (목차)
+- 테이블에 index를 생성하게 되면 index Table을 생성해 관리한다.
+- 인덱스는 테이블에 있는 하나 이상의 컬럼으로 만들 수 있다.
+
+- 가장 일반적인 B-tree(Binary Search Tree(이진검색))인덱스는 인덱스 키(인덱스로 만들 테이블의 컬럼 값)와 이 키에 해당하는 컬럼 값을 가진 테이블의 행(줄, ROW)으로 저장된 주소 값으로 구성된다.
+
+- 인덱스는 1개 이상의 컬럼으로 생성할 수 있으며, 최대 32개의 컬럼까지 지정하여 생성할 수 있다.
+- 2개 이상의 컬럼으로 생성된 인덱스를 복합 인덱스라고 부른다.
+- 테이블에 종속적이다.
+- 기본키(주 키 = PRIMARY KEY), 유일키(UNIQUE)를 생성 할 때 자동으로 인덱스가 생성됨
+- 되도록 3개 미만의 컬럼으로 만드는게 좋음
+
+
+<INDEX를 사용해야 할 컬럼> : 
+- where절이나 조인 조건에서 자주 사용되는 열에 생성
+단, 컬럼이나 값에 대한 가공이 없어야 한다.
+예 : 
+SUBSTR(DEPTNO, 1, 2) = 10 (X)
+DEPTNO = 10 (O)
+
+- 조회결과가 전체행의 5 ~ 15% 정도로 읽어들일 것으로 예상되는 컬럼
+단, 5 ~ 15% 라도 데이터가 *너무 많을 경우에는 인덱스를 사용해도 소용이 없을 수 있다.
+그런 경우에는 다른 방법으로(페이징처리, 등) 처리를 해주는 것이 좋다.
+
+
+<INDEX를 사용하지 말아야 할 컬럼> : 
+- 테이블에 데이터가 너무 적거나(5%이하) 또는 15%이상의 데이터가 있는 경우
+- where절에 자주 사용되지 않는 열은 사용되지 않는다.
+- 중복값이 많은 경우
+- 테이블이 자주 갱신될 때
+- 값에 NULL이 많은 컬럼
+
+
+<인덱스 생성>
+//형식 (= 문법 = SYNTAX)
+CREATE INDEX [계정명(= 스키마명).]인덱스명 ON [계정명.] 테이블명((인덱스로 만들)컬럼1, 컬럼2, 컬럼3,....);
+
+**UNIQUE인덱스 생성
+반드시 중복값이 없는 컬럼이거나 PRIMARY KEY 제약조건이 걸려있는 컬럼에만 생성가능
+//형식
+CREATE UNIQUE INDEX [계정명(= 스키마명).]인덱스명 ON [계정명.] 테이블명((인덱스로 만들)컬럼1, 컬럼2, 컬럼3,....);
+
+
+
+<인덱스 재생성>
+//형식 (= 문법 = SYNTAX)
+CREATE INDEX 인덱스명 ON 테이블명((인덱스로 만들)컬럼명, 컬럼명,....);
+
+오라클은 ALTER INDEX 문을 사용해서 인덱스 컬럼 변경 불가.
+인덱스의 컬럼을 추가, 제거 또는 순서를 변경하기 위해서는
+인덱스를 삭제(DROP)다시 생성(CREATE) 해야 한다.
+
+
+
+<인덱스 수정>
+- 인덱스명 변경(인덱스명만 변경가능, 컬럼 추가, 삭제, 변경 불가)
+//형식 (= 문법 = SYNTAX)
+ALTER INDEX 기존인덱스명 RENAME TO 변경인덱스명;
+//예 : 
+ALTER INDEX PERSON_INDEX_NM_MAIL RENAME TO PERSON_INDEX;
+
+
+
+<인덱스 삭제>
+- 인덱스컬럼 추가, 삭제, 변경, 제거는 삭제 후 재생성으로 가능
+//형식 (= 문법 = SYNTAX)
+DROP INDEX 인덱스명;
+//예 : 
+DROP INDEX PERSON_INDEX;
+
+
+
+<인덱스 리빌드>
+- 인덱스 속도가 저하되었거나, 깨졌을 경우
+//형식 (= 문법 = SYNTAX)
+ALTER INDEX 인덱스명 REBUILD;
+
+
+
+
+<<레벨 확인 방법>>
+**BLEVEL(Branch level) : 오라클이 index에 접근할 때 몇 단계를 거쳐서 해당 위치를 찾아가는지의 여부를 나타냄
+예 : 
+SELECT TABLE_NAME, INDEX_NAME, BLEVEL FROM DBA_INDEXES WHERE OWNER = '계정명';
+
+
+
+
+<<시퀀스(SEQUENCE)>>
+- 시퀀스는 유일(UNIQUE)한 값을 생성해주는 오라클 객체 (NOCYCLE일 때)
+- 시퀀스를 생성하면 기본 키와 같이 순차적으로 증가하는 컬럼을 자동적으로 생성할 수 있게 된다. (INCREMENT값이 양수일 경우)
+- SEQUENCE를 생성할 때 값을 지정하지 않으면 1부터 1씩 증가. 
+- 즉, 테이블 내의 유일한 숫자를 자동으로 생성하는 자동 번호 방생기라 보면 됨. (NOCYCLE일 때)
+- 시퀀스는 테이블에 종속적이지 않다.
+
+
+
+<시퀀스 형식>
+CREATE SEQUENCE 시퀀스명
+
+--시퀀스명 명명규칙 (권장사항)
+- SEQ(SEQUENCE)_[테이블명_]컬럼명
+- [테이블명_]컬럼명_SEQ(SEQUENCE)
+
+
+① [START WITH n] 
+② [INCREMENT BY n] 
+③ [{MAXVALUE n | NOMAXVALUE}]
+④ [{MINVALUE n | NOMINVALUE}]
+⑤ [{CYCLE | NOCYCLE}]
+⑥ CACHE | NOCACHE
+
+
+
+① START WITH : : 디폴트 1부터 시작
+시퀀스 번호의 시작값을 지정할 때 사용함. 
+예시: 1부터 시작되도록 하려면: START WITH 1
+
+② INCREMENT BY : 디폴트 1씩 증가
+연속적인 시퀀스 번호의 증가치를 지정할 때 사용함.
+예시: 1씩 증가하는 시퀀스를 생성하려면 : INCREMENT BY 1
+
+③ MAXVALUE n | NOMAXVALUE  : 디폴트 NOMAXVALUE  
+미지정시 : 9999999999999999999999999999 자동입력
+MAXVALUE :  시퀀스가 가질 수 있는 최대값을 지정할 때 사용. 
+NOMAXVALUE :  미지정값을 의미, 9999999999999999999999999999
+
+④ MINVALUE n | NOMINVALUE : 디폴트 NOMINVALUE
+MINVALUE 은 시퀀스가 가질수 있는 최소값을 지정할 때 사용. 
+NOMINVALUE: 미지정값을 의미, 기본 1이고 최소 -999999999999999999999999999
+
+⑤ CYCLE | NOCYCLE : 디폴트 NOCYCLE 
+CYCLE 은 지정된 시퀀스 값이 최대값까지 증가가 완료되게 되면 다시 START WITH 옵션에 지정한 시작 값에서 다시 시퀀스를 시작하도록 한다. NOCYCLE은 증가가 완료되게 되면 에러를 유발한다.
+
+⑥ CACHE OR NOCACHE :NOCACHE 권장, 디폴트 NOCACHE
+- CACHE 설정 시 메모리에 시퀀스 값을 미리 할당
+- NOCACHE 설정 시 시퀀스값을 메모리에 할당하지 않음. (= CACHE 20과 동일) 
+
+==============================================
+
+
+
+
+//시퀀스를 MAX부터 -1씩 감소하는 예시
+CREATE SEQUENCE SEQ_NO
+START WITH 5 -- 이 부분은 생략가능.
+INCREMENT BY -1
+MAXVALUE 5 -- 이 부분은 생략불가, START값이 MAX보다 크면 안됨
+NOCACHE; -- 이 부분은 생략가능. 디폴트가 NOCACHE
+--CYCLE인 경우는 반드시 MINVALUE가 존재해야 함.
+
+
+//CACHE값 설정 오류 예시
+CREATE SEQUENCE SEQ_NO
+INCREMENT BY 2
+MAXVALUE 5
+CYCLE CACHE 4;
+--CYCLE은 CACHE 또는 NOCACHE로 꼭 설정을 해주어야 하며, CACHE값은 1보다 크고 한 사이클 주기(MINVALUE와 MAXVALUE, INCREMENT BY 값까지 체크하여 확인)보다 작거나 같아야 한다.
+
+
+
+================================================
+<<CURRVAL, NEXTVAL>> : 슈도컬럼(PSEUDO)
+- CURRVAL : 현재 값을 반환한다.
+- NEXTVAL : 현재 시퀀스값의 다음 값을 반환한다.
+
+- CURRVAL에 새로운 값이 할당되기 위해서는 NEXTVAL로 새로운 값을 생성해야 한다.
+- 즉, NEXTVAL로 새로운 값을 생성한 다음에 이 값을 CURRVAL에 대체하게 된다는 이야기이다.
+
+
+
+================================================
+
+@ NEXTVAL, CURRVAL을 사용할 수 있는 경우
+- SELECT문 (아래 분가능부분 제외)
+- INSERT문의 SELECT절, VALUES절
+- UPDATE문 SET절
+- CREATE문의 서브쿼리
+
+
+
+@ NEXTVAL, CURRVAL을 사용할 수 없는 경우
+- VIEW의 SELECT절
+
+- DISTINCT 키워드가 있는 SELECT문
+- SELECT문의 GROUP BY, HAVING, ORDER BY 절
+- SELECT, DELETE, UPDATE문의 WHERE 조건
+
+- CREATE TABLE, ALTER TABLE의 DEFAULT
+
+
+
+//USER_SEQUENCES 데이터 딕셔너리로 시퀀스 확인하고 필요없는 것 제거할 것
+SELECT * FROM USER_SEQUENCES;
+
+
+
+
+
+//
+//30
+//필기
+//
 
 
 
