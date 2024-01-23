@@ -3254,7 +3254,7 @@ DML(INSERT, UPDATE, DELETE) 사용 가능
 여러 개의 테이블이 JOIN되어 생성되는 것. 하나 이상의 TABLE에서 뽑아오며 함수(GROUP BY HAVING등과 같은 함수)를 사용한다.
 DML(INSERT, UPDATE, DELETE) 사용 *불가능
 
-- <온라인 VIEW (INLINE VIEW)> : 
+- <인라인 VIEW (INLINE VIEW)> : 
 여러 번 사용할 필요없이 1회만 필요한 VIEW일 경우 SQL명령의 FROM절에 VIEW의 서브쿼리 부분을 바로 적어주면 되며 이런 일회용 VIEW를 말함.
 
 
@@ -3478,6 +3478,227 @@ SELECT * FROM USER_SEQUENCES;
 
 
 
+<<DCL(Data Control Language, 데이터 제어어)>>
+- 데이터의 보안, 무결성, 회복, 병행 수행 제어, 등을 정의하는데 사용하는 언어
+**TCL포함
+- GRANT : 데이터베이스 사용자에게 사용 권한을 부여
+- REVOKE : 사용자계정의 권한을 회수
+
+
+
+<*권한 관리>
+
+- 사용자에 의해 사용되는 권한
+CREATE SESSION : 데이터베이스에 연결할 수 있는 권한, USER로 연결(접속)할 수 있는 권한
+CREATE TABLE : 테이블을 생성할 수 있는 권한
+CREATE VIEW : 뷰를 생성할 수 있는 권한
+CREATE SEQUENCE : 시퀀스를 생성할 수 있는 권한
+CREATE PROCEDURE : 함수를 생성할 수 있는 권한
+
+- CONNECT 롤 :
+사용자가 데이터베이스에 접속 가능하도록 가장 기본적인 시스템 권한을 묶어 놓았다.
+CREATE TABLE(접근권한), CREATE SEQUENCE, CREATE CLUSTER, CREATE SESSION, ALTER SESSION, CREATE SYNONYM, CREATE DATABASE LINK
+
+- RESOURCE 롤 : 
+유저를 생성하면 일반적으로 CONNECT, RESOURCE 롤을 부여 한다.
+사용자가 객체를 생성할 수 있도록 시스템 권한을 묶어 놓았다.
+CREATE TABLE(자원권한), CREATE SEQUENCE, CREATE CLUSTER, CREATE TRIGGER, CREATE PROCEDURE
+
+
+
+<현재 사용자의 시스템 권한 정보 확인>
+SELECT * FROM SESSION_PRIVS;
+
+
+
+=====================================================
+
+
+1. 선택적 권한부여 : 
+DBA권한을 가진 USER가 자신의 계정에 접근하는 USER의 권한을 선택하여 부여할 수 있다.
+GRANT SELECT ON [스키마명(계정명)].[TABLE명] TO [USER명];
+GRANT INSERT ON [스키마명(계정명)].[TABLE명] TO [USER명];
+GRANT DELETE ON [스키마명(계정명)].[TABLE명] TO [USER명];
+GRANT UPDATE ON [스키마명(계정명)].[TABLE명] TO [USER명];
+
+--또는
+GRANT SELECT, INSERT, DELETE, UPDATE ON [TABLE명] TO [USER명];
+GRANT ALL ON [TABLE명] TO [USER명];
+=====================================================
+
+
+2. 선택적 권한취소 : 
+REVOKE SELECT ON [스키마명(계정명)].[TABLE명] FROM [USER명];
+REVOKE INSERT ON [스키마명(계정명)].[TABLE명] FROM [USER명];
+REVOKE DELETE ON [스키마명(계정명)].[TABLE명] FROM [USER명];
+REVOKE UPDATE ON [스키마명(계정명)].[TABLE명] FROM [USER명];
+
+--또는
+REVOKE SELECT, INSERT, DELETE, UPDATE ON [TABLE명] FROM [USER명];
+REVOKE ALL ON [TABLE명] FROM [USER명];
+=====================================================
+
+
+다른 계정에 SELECT, INSERT, DELETE, UPDATE 모든(ALL) 권한 부여
+GRANT ALL ON [TABLE명] TO [USER명];
+
+
+다른 계정에 모든 테이블에 대한 SELECT 권한 부여
+GRANT SELECT ANY TABLE TO [USER];
+
+
+--ALL과 ANY는 같이 사용할 수 없다
+GRANT ALL ON ANY TABLE TO ORAUSER; (X)
+
+=====================================================
+
+
+
+
+<<시노님(SYNONYM : 동의어 - 테이블에 대한 별칭 부여)>>
+- DBA권한이 부여된 계정만 생성 가능.
+- 비공개동의어(PRIVATE SYNONYM), 공개동의어(PUBLIC SYNONYM)이 있다.
+
+
+<비공개동의어(PRIVATE SYNONYM)> : 
+만든 계정에서만 접근 가능하며, 다른계정은 권한을 부여 받아야 접근할 수 있다.
+(단, DBA권한 계정은 모두 접근 가능)
+비공개동의어는 비공개시노님은 접근권한이 부여된 계정이더라도 접근할 때 반드시 계정명.으로 접근해야 한다.
+
+생성형식 : 
+CREATE OR REPLACE [PRIVATE-디폴트,생략가능|PUBLIC-생략불가] SYNONYM [스키마명.]시노님명 FOR [스키마명.]객체명;
+**객체명에는 테이블명, 뷰명, 프로시저명, 함수명, 패키지명, 시퀀스명, 등이 올 수 있다.
+**시노님은 별도의 수정구문이 없으므로 삭제 후 재생성을 해야한다.
+
+
+
+
+<[오라클]오라클계정 비밀번호 만료기간 해제 및 변경>
+
+비밀번호 유효기간은 기본값이 180일로 설정 되어있어 유효기간이 지나면 자동만료되어 접속할 수 없게 된다.
+
+오라클 계정 비밀번호 만료일이 지나면, [oracle : the password has expired] 라는 메세지와 함께 접속할 수 없다.
+
+
+<비밀번호 만료기간 해제하기>
+
+1. 관리자계정으로 접속
+splplus / "as sysdba"
+
+2. 비밀번호 유효기간 확인
+SQL > select * from dba_profiles where profile = 'DEFAULT';
+
+2-1. 비밀번호 만료기간만 확인해보면, 180으로 설정되어 있는 것을 볼 수 있다.
+SQL > select * from dba_profiles where resource_name = 'PASSWORD_LIFE_TIME';
+
+3. DEFAULT 비밀번호 만료기간 unlimited로 변경하기
+SQL > alter profile default limit password_life_time unlimited;
+
+4. 다시 한번 비밀번호 만료기간 확인해보기
+비밀번호 만료기간 해제 완료
+
+
+만약, 비밀번호가 만료되어 접속이 안될 때, 해결방법은 
+비밀번호 유효기간을 바꾸기전에 계정의 락 해체 후에 비밀번호를 변경해줘야 한다.
+
+
+<계정 락 해체하기>
+SQL > alter user 계정명 account unlock;
+
+<비밀번호 변경하기>
+SQL > alter user 계정명 identified by 새비밀번호;
+
+
+
+
+ORACLE SID(데이터베이스) 선택 변경 방법
+
+WINDOWS 편집창에서 실행 할 것 (SQL편집창에서 실행하면 안됨)
+C:\Users\hi>set oracle_sid=SID명입력하기
+C:\Users\hi>SQLPLUS 사용자계정명/비밀번호[@SID명]
+
+
+
+
+<<의사 컬럼 (슈도컬럼 = PSEUDO)>>
+
+<ROWNUM> 키워드
+- 인덱스에서 저장하는 ROWID(행주소)값이기도 함.
+- 저장된 행 순서대로 자동으로 순번을 부여함.
+- 단순쿼리인 경우에는 where절에만 사용 가능.
+단, 서브쿼리 사용 시 select절에도 표현할 수 있다.
+- 페이징처리를 하려면 서브쿼리를 이용하여 할 수 있다.
+*페이징처리 : 한 번에 보여지는 수를 조정하는 것
+- order by절 이용 시 꼭 서브쿼리에서 사용할 것
+
+// 형식 : 
+- ROWNUM < 값
+- ROWNUM <= 값
+*값은 양의 정수로 표현
+
+--단순쿼리 시
+SELECT * FROM CUSTOMERS WHERE ROWNUM <= 1000 AND CUST_GENDER = 'M';
+
+--서브쿼리 시
+SELECT ROWNUM RN, C.* 
+FROM (SELECT * FROM CUSTOMERS WHERE CUST_GENDER = 'M') C
+WHERE ROWNUM <= 500;
+
+--페이징 쿼리
+페이징 처리시에는 꼭 별칭을 지정해 주어야만 제대로 인식될 수 있다.
+SELECT * FROM (SELECT ROWNUM RN, C2.* FROM CUSTOMERS C2 WHRER CUST_GENDER = 'M')
+WHERE RN BETWEEN 10 AND 13;
+
+SELECT * FROM (SELECT ROWNUM RN, C2.* FROM CUSTOMERS C2 WHRER CUST_GENDER = 'M')
+WHERE RN >= 50 AND RN <= 100;
+
+
+
+
+<<MERGE절>>
+조건에 의해 한꺼번에 추가(INSERT), 갱신(UPDATE), 삭제(DELETE) 할 수 있는 명령문 ON절에 있는 조건에 UPDATE 할 컬럼이 들어가면 안됨. 오류 발생
+
+형식 : 
+MERGE INTO 변경을원하는테이블명1 [별칭]	--서브쿼리가 와도 된다.
+USING 데이터를가져올테이블명2 [별칭]	--뷰, 테이블, 서브쿼리 등 가능
+ON (테이블1과 테이블2를 엮을 조건)		--이너조인과 동일하게 기술
+
+
+[
+WHEN MATCHED THEN		--이 절에는 반드시 UPDATE문이 와야 한다.
+(ON절 조건이 일치하면)
+UPDATE SET 테이블1의컬럼1 = 테이블2의컬림1, 테이블1의컬럼2 = 테이블2의컬럼2,....
+[DELETE WHERE 조건		**반드시 UPDATE절과 같이 써야 한다.]
+]
+
+
+[
+WHEN NOT MATCHED THEN		--이 절에는 INSERT문이 올 수 한다.
+(ON절 조건이 일치하지 않으면)
+INSERT (테이블1의컬럼1,테이블1의컬럼2,....) VALUES (테이블2의컬럼1, 테이블2의컬럼2,...);
+]
+
+
+
+
+CREATE TABLE EMP01 AS SELECT * FROM EMP01;
+
+MERGE INTO EMP01 A
+USING (SELECT EMPNO, SAL, JOB FROM EMP WHERE DEPTNO = 10) B
+ON (A.EMPNO = B.EMPNO)
+WHEN MATCHED THEN
+UPDATE SET A.SAL = SAL + SAL * 0.01
+WHEN NOT MATCHED THEN
+INSERT (A.EMPNO, SAL, JOB) VALUES (B.EMPNO, B.SAL, B.JOB);
+
+
+
+
+
+//
+//31
+//필기
+//
 
 
 
