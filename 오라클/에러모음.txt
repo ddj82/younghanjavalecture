@@ -391,14 +391,25 @@ ORA-01031: insufficient privileges
 
 
 
+ORA-01789: query block has incorrect number of result columns
+01789. 00000 -  "query block has incorrect number of result columns"
+*Cause:    
+*Action:
+
+=> 집합연산자인 UNION을 사용할 때 컬럼의 개수를 맞춰주지 않으면 나는 오류
 
 
 
 
 
+ORA-00933: SQL command not properly ended
+00933. 00000 -  "SQL command not properly ended"
+*Cause:    
+*Action:
+55행, 1열에서 오류 발생
 
-
-
+=> 집합연산자를 사용할 때 ORDER BY절을 마지막 테이블에 사용하지 않으면 나는 오류
+SQL문에 맞지 않는다는 오류 내용
 
 
 

@@ -3502,7 +3502,7 @@ CREATE TABLE(접근권한), CREATE SEQUENCE, CREATE CLUSTER, CREATE SESSION, ALT
 - RESOURCE 롤 : 
 유저를 생성하면 일반적으로 CONNECT, RESOURCE 롤을 부여 한다.
 사용자가 객체를 생성할 수 있도록 시스템 권한을 묶어 놓았다.
-CREATE TABLE(자원권한), CREATE SEQUENCE, CREATE CLUSTER, CREATE TRIGGER, CREATE PROCEDURE
+CREATE TABLE(자원(생성)권한), CREATE SEQUENCE, CREATE CLUSTER, CREATE TRIGGER, CREATE PROCEDURE
 
 
 
@@ -3548,6 +3548,7 @@ GRANT SELECT ANY TABLE TO [USER];
 
 
 --ALL과 ANY는 같이 사용할 수 없다
+--ALL은 ON이 필요하고 ANY는 ON이 없어야해서 같이 사용 안됨
 GRANT ALL ON ANY TABLE TO ORAUSER; (X)
 
 =====================================================
@@ -3644,7 +3645,7 @@ SELECT ROWNUM RN, C.*
 FROM (SELECT * FROM CUSTOMERS WHERE CUST_GENDER = 'M') C
 WHERE ROWNUM <= 500;
 
---페이징 쿼리
+--**페이징 쿼리
 페이징 처리시에는 꼭 별칭을 지정해 주어야만 제대로 인식될 수 있다.
 SELECT * FROM (SELECT ROWNUM RN, C2.* FROM CUSTOMERS C2 WHRER CUST_GENDER = 'M')
 WHERE RN BETWEEN 10 AND 13;
@@ -3662,7 +3663,7 @@ WHERE RN >= 50 AND RN <= 100;
 MERGE INTO 변경을원하는테이블명1 [별칭]	--서브쿼리가 와도 된다.
 USING 데이터를가져올테이블명2 [별칭]	--뷰, 테이블, 서브쿼리 등 가능
 ON (테이블1과 테이블2를 엮을 조건)		--이너조인과 동일하게 기술
-
+-ㄴ필수--
 
 [
 WHEN MATCHED THEN		--이 절에는 반드시 UPDATE문이 와야 한다.
@@ -3703,16 +3704,285 @@ INSERT (A.EMPNO, SAL, JOB) VALUES (B.EMPNO, B.SAL, B.JOB);
 
 
 
+<<집합 연산자>>
+집합연산자 : UNION, UNION ALL-합집합 / INTERSECT-교집합 / MINUS-차집합
+
+집합연산자의 제한 조건 : 
+- **두 테이블의 컬럼 개수와 자료형, 나열순서가 같아야 한다.
+
+- ORDER BY 절은 모든 쿼리문을 다 기술한 뒤 맨 마지막에 한 번만 기술가능하다.
+(단, ORDER BY 절을 쓸 때는 처음에 기술한 테이블이 기준이 되기 때문에 처음 기술한 테이블의 컬럼으로만 정렬 가능)
+- LOB(BLOB, CLOB, BFILE)자료형, LONG자료형에는 사용할 수 없다.
+
+
+1. UNION : 합집합
+- 두 개의 테이블의 데이터를 모두 포함한 결과를 반환함.
+- 중복을 허용하지 않는다. 중복값은 1개만 표현함
+예: 
+SELECT DEPTNO, ENAME FROM EMP *UNION SELECT DEPTNO, DNAME FROM DEPT;
+
+
+1-2. UNION ALL : 합집합
+- UNION과 거의 다 동일하지만 중복을 허용하여 모두 출력한다.
+
+
+2. INTERSECT : 교집합
+- 두 개의 테이블의 데이터 중 공통된 항목만 반환함.
+- 중복을 허용하지 않는다.
+
+
+3. MINUS : 차집합
+- 두 개의 테이블의 데이터 중 공통된 항목을 제외한 데이터만 반환하는데,
+단, 먼저 처리된 테이블의 항목만 반환한다. 나중에 처리된 테이블의 결과는 제외.
+- 중복을 허용하지 않는다.
+
+
+
+
+<<PL/SQL (ORACLE'S PROCEDURAL LANGUAGE EXTENSION TO SQL)>>
+1. 절차적 언어
+- 절차적 언어란, 개발자가 처리 절차(처리순서, 처리방법)를 처음부터 끝까지 정해주어야 하는 언어.
+
+2. 비절차적 언어
+- 비절차적 언어란, 개발자가 처리절차를 지정하지 않고 원하는 결과를 정의하여 요청하는 언어.
+
+
+<PL/SQL>
+- 오라클 자체에 내장되어 있는 절차적 언어(Procedural Language)로서,
+SQL의 비절차적 언어의 단점을 보완, 확장한 언어
+
+- **SQL 문장에서 변수 정의, 조건(IF), 반복(LOOP, WHILE, FOR) 처리 등을 지원
+
+- **블록(Block) : PL/SQL 프로그램의 기본 단위
+
+- 데이터에 대한 조작을 SQL만으로 처리하는데 한계가 있는 경우, 
+DB안에서 데이터 값에 대한 처리를 하고 싶은 경우(함수, 프로시저, 트리거 등등) 사용.
+
+
+<구성> : 
+- DECLARE(선언부) : 기술여부는 선택, 실행에 사용 될 변수/상수/커서 등을 선언
+- BEGIN(실행부) ~ END : 기술여부는 필수, 조건문/반복문/SELECT/DML/함수 등을 정의
+- EXCEPTION(예외 처리부) : 기술여부는 선택, PL/SQL 실행 도중 발생하는 오류(예외 상황)를 해결하는 문장 서술
+
+
+<PL/SQL 작성 주의사항>
+1. PL/SQL블록을 구성하는 DECLARE, BEGIN ~ END, EXCEPTION 키워드에는 세미콜론(;)을 사용하지 않는다.
+(단 BEGIN문 안에 기술하는 SQL명령문에는 세미콜론을 사용해야 한다.)
+
+2. PL/SQL블록의 각 부분에서 실행해야 하는 문장 끝에는 세미콜론(;)을 사용.
+ex) DBMS_OUTPUT.PUT_LINE('HELLO, PL/SQL !');
+
+3. SQL에서와 마찬가지로 PL/SQL 내부에서도 주석 사용 가능
+한 줄 주석 : --
+여러 줄 주석 : /*주석내용*/
+
+4. PL/SQL문 작성을 마치고 실행하기 위해 마지막에 슬래시(/)를 사용(SQLDevelper에서는 생략 가능)
+**마지막에 슬래시(/)는 PL/SQL문 작성이 끝났다는 의미와 실행하라는 의미를 가지고 있음.
+
+5. 선언 조건(권장사항)
+변수 : 변수앞에 v를 붙여준다. variable의 약자
+상수 : 상수앞에 c를 붙여준다. constant의 약자
+매개변수 : 매개변수앞에 p를 붙여준다. parameter의 약자
+
+
+
+- <익명블록 (ANONYMOUS BLOCK)> : 
+이름 없이 선언된 PL/SQL문을 익명블록이라 함.
+
+//형식 : 
+[
+DECLARE   --선언부 (DECLARE SECTION)
+   변수나 상수, 커서를 선언
+]
+BEGIN   --실행부 (EXECUTABLE SECTION)
+   SQL문
+   제어문, 반복문, 출력문
+   커서 사용
+   [EXCEPTION   --예외 처리부 (EXCEPTION SECTION)]
+
+END;
+/
+
+
+
+
+--DBMS_OUTPUT : java의 System.out객체와 유사
+
+--SET SERVEROUTPUT ON : 
+DBMS_OUTPUT이 정상 작동하도록 설정을 ON하는 기능(출력 콘솔창을 킨다는 의미)
+SET SERVEROUTPUT ON을 기술해주지 않으면 출력결과를 확인하기가 어렵다.
+단. sqldeveloper에서는 생략가능
+
+
+
+
+DBMS_OUTPUT 패키지는 문자열 출력을 위해 3가지 프로시저를 지원함
+PUT_LINE : 문자열을 출력한 후 다음 라인으로 이동.
+PUT : 문자열을 출력한 후 대기. 반드시 다음 줄로 넘어갈 수 있는 무언가가 지정되어 있어야 한다.
+NEW_LINE : 다음 라인으로 이동. 매개인자 값을 넣으면 안됨.
+
+
+
+<*변수>
+- 테이블의 컬럼 정의와 구조가 동일하다.
+- 변수를 초기화 하지 않고 정의만 한 경우는 해당 변수의 자료형에 상관없이 NULL값으로 지정된다.
+- 변수 정의 시 NOT NULL 이나 CONSTANT(상수) 로 정의하여 변수의 데이터에 일부 제약(Constraint) 사항을 정의할 수도 있다.
+
+- 형식 : 
+변수명 자료형(데이터타입) := 초기값;
+변수명 자료형(데이터타입) [NOT NULL] [:= 초기값];
+변수명 자료형(데이터타입);
+
+
+
+<*  :=	PL/SQL에서의 대입연산자 >
+
+
+
+<상수>
+- 한 번 값을 할당 받으면 변하지 않는 수
+- 꼭 선언과 동시에 초기화도 해주어야 한다.
+
+- 형식 : 
+상수명 CONSTANT 자료형(데이터타입) := 상수값;
+*꼭 CONSTANT 키워드를 붙여야 한다.
+
+
+
+<연산자>
+** : 제곱연산자 예) 2**3 -> 2의 3승
+
++값, -값 : 부호연산자. 양수, 음수 식별연산자
+
+*, / : 산술연산자 중 곱셈, 나눗셈
+
++, -, || : 산술연산자 중 덧셈, 뺄셈 및 문자열 연결 연산자
+
+=, <, >, <=, >=, <>, !=, ~=, \^=, IS NULL, LIKE, BETWEEN~AND, IN : 비교연산자
+
+NOT : 논리연산자, 부정을 의미
+	NOT true : false
+	NOT false : true
+	NOT null : null
+
+AND : 논리연산자, 교집합을 의미 
+	true AND true : true
+	true AND false : false
+	false AND false : false
+	true AND null : null
+	false AND null : false
+	null AND null : null
+
+OR : 논리연산자, 합집합을 의미 
+	true OR true : true
+	true OR false : true
+	false OR false : false
+	true OR null : true
+	false OR null : null
+	null OR null : null
+
+
+
+DECLARE
+VEMPNO NUMBER(4);
+VENAME VARCHAR2(10);
+BEGIN 
+VEMPNO := 7788;
+VENAME := 'SCOTT';
+DBMS_OUTPUT.PUT_LINE('사번 / 이름');
+DBMS_OUTPUT.PUT_LINE('---------');
+DBMS_OUTPUT.PUT_LINE(VEMPNO || '/' || VENAME);
+END;
+/
+
+
+
+
+<<데이터 타입>>
+
+- <스칼라 타입> : 
+숫자(NUMBER), 문자(CHAR, VARCHAR2), 날짜(DATE, TIMESTAMP), BOOLEAN 등
+- 스칼라 변수 : SQL자료형과 비슷하게 선언하는 변수를 말함.
+
+
+-<레퍼런스 타입(= 참조자료형)> : 
+- 레퍼런스 변수 : DB 테이블의 특정 컬럼으로 변수 타입을 지정할 때 사용
+- 테이블에서 컬럼의 자료형이 반경되더라도, PL/SQL에서의 변수 선언부분을 수정할 필요가 없다는 장점이 있다.
+
+- 형식 : 
+   테이블이름.필드명%TYPE : 컬럼 타입 선언, 컬럼(열, 칸, 필드, 항목, 속성) 단위
+   예) EMP.EMPNO%TYPE -> NUMBER(4,0)
+
+   테이블이름%ROWTYPE : 레코드 타입 선언, 레코드(행, 줄, 로우) 단위
+   예) EMP%ROWTYPE -> 	EMPNO		NUMBER(4,0)
+			ENAME		VARCHAR2(10 BYTE)
+			JOB		VARCHAR2(9 BYTE)
+			MGR		NUMBER(4,0)
+			HIREDATE	DATE
+			SAL		NUMBER(7,2)
+			COMM		NUMBER(7,2)
+			DEPTNO		NUMBER(2,0)
+				
+			
+			
+				
+			
+DECLARE
+--테이블의 컬럼의 데이터타입과 일치시켜 주는 것이 좋다. 에러 예방
+--스칼라 변수 선언
+VEMPNO NUMBER(4);
+VENAME VARCHAR2(10);
+VDEPTNO NUMBER(2);
+VDNAME VARCHAR2(14);
+BEGIN
+--테이블 안의 데이터를 받아오는 경우 select절 안에 into를 이용한다.
+--select절 컬럼의 데이터타입, 개수, 순서와
+--INTO절의 변수의 데이터타입, 개수, 순서가 일치해야 한다.
+--select절의 데이터는 INTO절을 통해 해당 변수를 초기화 해줘야 하기 때문에 
+--반드시 한 줄의 데이터만 가져오는 쿼리문이여야 한다.
+
+SELECT E.EMPNO, E.ENAME, D.DEPTNO, D.DNAME
+INTO VEMPNO, VENAME, VDEPTNO, VDNAME
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO AND E.ENAME = 'SMITH';
+
+DBMS_OUTPUT.PUT_LINE('사번 / 이름 / 부서번호 / 부서명');
+DBMS_OUTPUT.PUT_LINE('---------------------------------');
+DBMS_OUTPUT.PUT_LINE(VEMPNO || ' / ' || VENAME || ' / ' || VDEPTNO || ' / ' || VDNAME);
+END;
+/			
+			
+
+
+
+<IF~ ELSIF~ ELSE조건문>
+- 형식 : 
+IF 조건1(condition1) THEN
+   실행문1(statement1);
+[
+ELSIF 조건2 THEN
+   실행문2;
+ELSE
+   실행문3;
+]
+END IF;
+
+
+
+
+<ORACLE에서의 BOOLEAN자료형>
+값 : TRUE, FALSE, NULL 값을 가질 수 있다. (대소문자 안가림)
+다른 자료형은 DBMS_OUTPUT의 출력문을 통해 출력 가능하지만 
+BOOLEAN자료형 값은 DBMS_OUTPUT의 출력문으로 바로 값을 출력할 수 없다.(오류)
 
 
 
 
 
-
-
-
-
-
+//
+//32
+//필기
+//
 
 
 
