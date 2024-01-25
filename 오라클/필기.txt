@@ -3914,14 +3914,9 @@ END;
    예) EMP.EMPNO%TYPE -> NUMBER(4,0)
 
    테이블이름%ROWTYPE : 레코드 타입 선언, 레코드(행, 줄, 로우) 단위
-   예) EMP%ROWTYPE -> 	EMPNO		NUMBER(4,0)
-			ENAME		VARCHAR2(10 BYTE)
-			JOB		VARCHAR2(9 BYTE)
-			MGR		NUMBER(4,0)
-			HIREDATE	DATE
-			SAL		NUMBER(7,2)
-			COMM		NUMBER(7,2)
-			DEPTNO		NUMBER(2,0)
+   예) EMP%ROWTYPE -> 
+    /EMPNO/         /ENAME/	      /JOB/         /MGR/    /HIREDATE/   /SAL/          /COMM/        /DEPTNO/
+NUMBER(4,0) VARCHAR2(10) VARCHAR2(9) NUMBER(4,0)  DATE  NUMBER(7,2) NUMBER(7,2) NUMBER(2,0)	
 				
 			
 			
@@ -3988,14 +3983,152 @@ BOOLEAN자료형 값은 DBMS_OUTPUT의 출력문으로 바로 값을 출력할 �
 
 
 
+<<반복문 (LOOP)>>
+
+<BASIC LOOP 기본 반복문>
+형식 : 
+LOOP
+
+반복으로 실행할 코드;
+...
+(*필수) 탈출하는 코드;
+END LOOP;
+
+
+
+
+<FOR LOOP>
+형식 : 
+FOR 인덱스명 IN [REVERSE(역순)] 시작값..종료값 LOOP --(시작값과 종료값 사이 점두개 기술 필수)
+
+반복으로 실행할 코드;
+...
+[탈출하는 코드;]
+END LOOP;
+
+
+**인덱스명 : 
+선언할 필요가 없다.
+변수처럼 값을 직접 대입받아서 변경하거나 할 수 없다.
+IN 뒤의 범위의 값을 자동으로 하나씩 받아서 값을 가지게 되는 변수이다.
+
+
+
+
+<WHILE LOOP>
+형식 : 
+WHILE 조건 LOOP
+
+반복으로 실행할 코드;
+...
+탈출하는 코드;
+END LOOP;
 
 
 
 
 
+<CONTINUE> : 
+LOOP 머리로 돌아가라
 
 
 
+
+<라벨>
+<<라벨명>> --라벨을 붙일 수 있다.
+...
+...
+GOTO 라벨명; --라벨로 돌아가기, 대소문자 구분 안함.
+
+
+
+
+<<커서 (Cursor)>>
+- SQL문을 처리한 결과를 담고 있는 영역(메모리영역)을 가리키는 일종의 포인터
+- 처리 결과가 여러 개의 행으로 구해지는 SELECT문을 처리할 때 이용.
+- 커서의 사이클 : 열기(OPEN) - 패치(FETCH) - 닫기(CLOSE)
+- FETCH문은 결과셋(결과테이블)에서 로우(행=레코드) 단위로 데이터를 읽어들인다.
+- FETCH 후에 CURSOR는 결과셋에서 다음 행으로 이동한다.
+
+- 커서의 상태 
+   -- %FOUND : 커서 영역에 FETCH 되지 않은 자료가 있다면 TRUE
+   -- %ONTFOUND : 커서 영역의 데이터가 모두 FETCH 되었다면 TRUE
+   -- %ISOPEN : 커서가 OPEN 된 상태이면 TRUE
+	         묵시적커서는 OPEN 상태 인식이 안된다. 따라서 늘 FALSE
+   -- %ROWCOUNT : 커서가 얻어 온 레코드의 개수
+**묵시적커서 : 커서를 명시적으로 선언하지 않아도 자동으로 실행되는 커서(대표적 : SQL실행문)
+**명시적커서 : DECLARE부에 선언하는 커서들
+SQL%ROWCOUNT : 해당 코드가 기술되기 바로 직전에 실행된 SQL명령에서 처리된 묵지적커서의 행수를 반환함.
+커서명%ROWCOUNT : 해당 커서의 전체 행 수를 반환함.
+
+- 형식 : 
+DECLARE
+CURSOR 커서이름 IS SELECT쿼리문; --명시적커서
+BEGIN
+OPEN 커서이름 [(매개변수, ...)];
+FETCH 커서이름, INTO 변수이름;
+CLOSE 커서이름;
+END;
+/
+
+
+
+<<CURSOR와 FOR LOOP>>
+- 반복할 때마다 CURSOR를 OPEN 한 후, 행(레코드)을 인출(FETCH)한다.
+- 모든 행이 처리되면 자동으로 CURSOR가 CLOSE된다.
+- REVERSE처리를 할 수 없다.
+
+- 형식 : 
+FOR 레코드 IN 커서명[(매개변수, ...)]
+LOOP
+실행문;
+...
+END LOOP;
+
+
+
+
+<<동적 SQL>>
+- 고정된 SQL이 아닌 변경 가능한 쿼리를 말한다.
+- 사용될 SQL문이 실행시에 결정된다.
+- 종류 : 
+원시 동적 SQL(NDS - Native Dynamic SQL)방식, DBMS Dynamic SQL방식이 있음.
+
+사용을 하는 이유
+- 컴파일 시 SQL문이 확정되지 않을 때
+- PL/SQL 블록 상에서 DDL문을 사용해야 할 때
+
+NDS(Native Dynamic SQL) : 원시 동적 SQL
+- 동적 SQL한 종류.
+- EXECUTE IMMEDIATE ~ INTO 문 사용
+
+- 형식 : 
+EXECUTE IMMEDIATE sql문자열 INTO 담을변수1, 담을변수2, ...
+[USING sql문자열에서 사용한 변수에 대응되는 바인드변수1, 바인드변수2, ...];
+**sql문자열은 SQL쿼리문을 담기 때문에 자료형의 사이즈를 좀 넉넉하게 해준다.
+
+**실행 순서 : sql문자열 -> [USING절] -> EXECUTE IMMEDIATE -> INTO절
+
+
+
+
+--SQL쿼리문을 변수에 담는다
+--V_SQL변수가 VARCHAR2이므로 안의 SMITH가 문자열이라는 것을 인식하도록 하기 위해서는
+--''값''(작은따옴표 2개)을 사용해야 한다. 큰따옴표가 아님.
+
+--바인드 변수 사용 : 연결해주는 변수를 바인드라고 함.
+--SQL쿼리문에 변수를 설정하여 해당 변수에 대응하는 값을 연결해주는 방식
+--여러 SQL안의 값이 변경되어도 구문을 변경해줄 필요가 없다.
+-SQL쿼리문을 바인드 변수로 처리
+--SQL쿼리문 안의 바인드 변수는 꼭 [:변수명] 형식으로 기술해주어야 한다.
+
+
+
+
+//
+//33
+//필기
+//
 
 
 
