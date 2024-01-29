@@ -431,14 +431,34 @@ FOR LOOP문의 조건으로 기술하는 인덱스는 값을 변경 할 수 없�
 
 
 
+명령의 1 행에서 시작하는 중 오류 발생 -
+BEGIN DEPT_INSERT_PROC('DEPT01'); END;
+오류 보고 -
+ORA-01031: insufficient privileges
+ORA-06512: at "TEST.DEPT_INSERT_PROC", line 13
+ORA-06512: at line 1
+01031. 00000 -  "insufficient privileges"
+*Cause:    An attempt was made to perform a database operation without
+           the necessary privileges.
+*Action:   Ask your database administrator or designated security
+           administrator to grant you the necessary privileges
+
+=> 권한부여가 안되어 있을 때 나는 오류
+GRANT 부여 할 권한 TO 계정명;
 
 
 
 
 
 
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+0/0       PL/SQL: Compilation unit analysis terminated
+11/1      PLS-00370: OTHERS handler must be last among the exception handlers of a block
+오류: 컴파일러 로그를 확인하십시오.
 
-
+=> 예외처리를 할 때, 
+OTHERS 예외를 마지막에 기술하지 않으면 나는 오류
 
 
 
