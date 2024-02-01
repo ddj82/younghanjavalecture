@@ -1,4 +1,4 @@
-package school_18.dbc2;
+package school_18_jdbc.dbc2;
 
 public class User {
 	private String url = "jdbc:oracle:thin:@LOCALHOST:1521:XE";

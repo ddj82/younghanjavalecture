@@ -51,3 +51,49 @@ conn.close();
 
 java.sql에서 제공하는 date자료형은 년월일 까지
 java.util에서 제공하는 date자료형은 년월일 시분초 까지
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--회원가입 메뉴 만들기 (insert)
+sql문 만들기
+dal클래스에 메소드 만들기
+
+--회원탈퇴 메뉴 만들기 (delete)
+sql문 만들기
+dao클래스에 메소드 만들기
+
+
+
+
+DAO(Data Access Object) : 데이터베이스에 접근하기 위한 SQL명령문을 담고 있는 객체
+
+DTO(= VO) : Data Transfer Object(데이터를 전송하는 객체) = Value Object(데이터를 저장하는 객체)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

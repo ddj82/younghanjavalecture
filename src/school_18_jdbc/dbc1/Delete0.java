@@ -1,34 +1,38 @@
-package school_18.dbc1;
+package school_18_jdbc.dbc1;
 
 import java.sql.*;
 
-public class Insert {
+public class Delete0 {
 
 	public static void main(String[] args) {
 		try {
 //			User user = new User();
 //			Class.forName(user.getDr());
 //			Connection conn = DriverManager.getConnection(user.getUrl(), user.getUser(), user.getPwd());
-//			PreparedStatement ps = conn.prepareStatement("");
-			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@LOCALHOST:1521:XE", "TEST", "1111");
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO DEPT VALUES(?, ?, ?)");
-			ps.setInt(1, 60);
-			ps.setString(2, "test2");
-			ps.setString(3, "anyang");
-			int cnt = ps.executeUpdate();
 			
-			System.out.println("처리한 행 수 : " + cnt);
-			if (cnt > 0) {
-				System.out.println("정상적으로 처리되었습니다.");
-				//보통 commit을 함 
+			Statement st = conn.createStatement();
+			int c = st.executeUpdate("DELETE FROM DEPT WHERE DEPTNO = 60");
+			System.out.println("처리한 행 수 : " + c);
+			
+			if (c > 0) {
+				System.out.println("성공");
 			} else {
-				System.out.println("처리하지 못하였습니다.");
-				//보통 rollback을 함
+				System.out.println("실패");
 			}
+			st.close();
 			
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM DEPT WHERE DEPTNO = ?");
+			ps.setInt(1, 60);
+			int c1 = ps.executeUpdate();
+			System.out.println("처리한 행 수 : " + c1);
 			
+			if (c1 > 0) {
+				System.out.println("성공");
+			} else {
+				System.out.println("실패");
+			}
 			ps.close();
 			conn.close();
 			

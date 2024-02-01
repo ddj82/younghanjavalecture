@@ -1,4 +1,4 @@
-package school_18.dbc1;
+package school_18_jdbc.dbc1;
 import java.sql.*;
 
 public class SelectTest {
