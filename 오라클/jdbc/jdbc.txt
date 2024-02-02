@@ -76,7 +76,9 @@ dao클래스에 메소드 만들기
 
 
 
+DAO(Data Access Object) : 데이터베이스에 접근하기 위한 SQL명령문을 담고 있는 객체
 
+DTO(= VO) : Data Transfer Object(데이터를 전송하는 객체) = Value Object(데이터를 저장하는 객체)
 
 
 

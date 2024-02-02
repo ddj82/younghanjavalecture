@@ -1,33 +1,27 @@
 public class AAA {
 public static void main(String[] args) {
-    String code = "abc1abc1abc";
-    String ret = "";
-    int mode = 0;
-    System.out.println(code.substring(0, 1));
-    for (int i = 0; i < code.length(); i++) {
-        if(mode == 0) {
-            if (code.charAt(i) != '1') {
-                if (i % 2 == 0) {
-                    ret += code.charAt(i);
-                }
-            } else {
-                mode = 1;
-                continue;
-            }
-        }
-        if (mode == 1) {
-            if (code.charAt(i) != '1') {
-                if (i % 2 == 1) {
-                    ret += code.charAt(i);
-                }
-            } else {
-                mode = 0;
-                continue;
-            }
+    String my_string = "BCBBBBBBdbe";
+    StringBuffer str = new StringBuffer(my_string);
+    String letter = "B";
+    String answer = "";
+//    answer = String.valueOf(str.deleteCharAt(my_string.indexOf(letter)));
+
+    for (int i = 0; i < my_string.length(); i++) {
+        if (my_string.indexOf(letter) == i) {
+            my_string = String.valueOf(str.deleteCharAt(i));
+            i--;
         }
     }
-    System.out.println(ret);
-    System.out.println(mode);
+//    for (;;) {
+//        if (answer.indexOf(letter) > 0) {
+//            answer = String.valueOf(str.deleteCharAt(my_string.indexOf(letter)));
+//        } else {
+//            break;
+//        }
+//    }
+
+//    System.out.println(my_string.indexOf(letter));
+    System.out.println(my_string);
     }
 }
 
