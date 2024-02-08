@@ -1,7 +1,5 @@
 package mcd;
 
-import java.sql.*;
-
 public class McdOlistVO {
 	private String order_num;
 	private String order_pn;
@@ -12,13 +10,13 @@ public class McdOlistVO {
 	private String order_status;
 	private String order_ma;
 	private String order_br;
-	private Date order_dt;
+	private String order_dt;
 	private int order_menuno;
 	private int order_ea;
 	private int order_tot;
 
 	public McdOlistVO(String order_num, String order_pn, String order_adr, String order_req, String order_nm,
-			String order_nick, String order_status, String order_ma, String order_br, Date order_dt, int order_menuno,
+			String order_nick, String order_status, String order_ma, String order_br, String order_dt, int order_menuno,
 			int order_ea, int order_tot) {
 		this.order_num = order_num;
 		this.order_pn = order_pn;
@@ -107,11 +105,11 @@ public class McdOlistVO {
 		this.order_br = order_br;
 	}
 
-	public Date getOrder_dt() {
+	public String getOrder_dt() {
 		return order_dt;
 	}
 
-	public void setOrder_dt(Date order_dt) {
+	public void setOrder_dt(String order_dt) {
 		this.order_dt = order_dt;
 	}
 
