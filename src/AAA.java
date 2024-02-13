@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+=======
+import java.util.*;
+>>>>>>> fe3426a683db393225b8af80adc0e2183bf1012e
 
 public class AAA {
     public static void main(String[] args) {
@@ -112,6 +116,7 @@ public class AAA {
 //    for (int i = 0; i < b.length; i++) {
 //        System.out.print(b[i] + " ");
 //    }
+<<<<<<< HEAD
     /*
     String myString = "AbCdEfG";
     String pat = "aBc";
@@ -212,6 +217,25 @@ public class AAA {
             }
         }
         System.out.println(answer);
+=======
+    String myString = "ABBAA";
+    myString = myString.replaceAll("A", "a");
+    myString = myString.replaceAll("B", "A");
+    myString = myString.replaceAll("a", "B");
+    System.out.println(myString);
+
+//    int[] arr = {293, 1000, 395, 678, 94};
+    int[] delete_list = {94, 777, 104, 1000, 1, 12};
+    ArrayList<Integer> arr = new ArrayList<>();
+    arr.add(293);
+    arr.add(1000);
+    arr.add(395);
+    arr.add(678);
+    arr.add(94);
+
+//    Arrays.stream(arr).map(i -> arr.remove(Arrays.stream(delete_list).boxed())).collect();
+
+>>>>>>> fe3426a683db393225b8af80adc0e2183bf1012e
     }
 }
 
