@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class AAA {
 public static void main(String[] args) {
 //    String my_string = "BCBdbe";
@@ -103,11 +105,28 @@ public static void main(String[] args) {
 //    System.out.println(answer);
 //    String a = s.substring(s.length() - n);
 //    System.out.println(a);
-    int[] a = {1, 2, 3, 100, 99, 98};
-    int[] b = a;
-    for (int i = 0; i < b.length; i++) {
-        System.out.print(b[i] + " ");
-    }
+//    int[] a = {1, 2, 3, 100, 99, 98};
+//    int[] b = a;
+//    for (int i = 0; i < b.length; i++) {
+//        System.out.print(b[i] + " ");
+//    }
+    String myString = "ABBAA";
+    myString = myString.replaceAll("A", "a");
+    myString = myString.replaceAll("B", "A");
+    myString = myString.replaceAll("a", "B");
+    System.out.println(myString);
+
+//    int[] arr = {293, 1000, 395, 678, 94};
+    int[] delete_list = {94, 777, 104, 1000, 1, 12};
+    ArrayList<Integer> arr = new ArrayList<>();
+    arr.add(293);
+    arr.add(1000);
+    arr.add(395);
+    arr.add(678);
+    arr.add(94);
+
+//    Arrays.stream(arr).map(i -> arr.remove(Arrays.stream(delete_list).boxed())).collect();
+
     }
 }
 
