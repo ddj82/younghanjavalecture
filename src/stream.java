@@ -1,4 +1,3 @@
-package school_12.javautilex;
 
 import java.util.ArrayList;
 import java.util.Arrays;
